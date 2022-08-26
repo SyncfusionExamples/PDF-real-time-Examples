@@ -82,59 +82,59 @@ namespace BoardingPassProject
             var from = new PdfTextElement("From", titleFont);
             result = from.Draw(currentPage, new Point((int)x,(int)result.Bounds.Bottom+15));
             float flightY = result.Bounds.Y;
-            float flightX=result.Bounds.Right;
+            float flightR=result.Bounds.Right;
             result = new PdfTextElement($" {model.From}", contentFont).Draw(currentPage, new PointF(x, result.Bounds.Bottom + 2));
 
-            PdfFont ChangepdfFont = new PdfTrueTypeFont(contentfontStream, 18);
+            PdfFont changeContentFont = new PdfTrueTypeFont(contentfontStream, 18);
             //Flight
             var flight = new PdfTextElement("Flight", titleFont);
-            PdfLayoutResult flightResult = flight.Draw(currentPage, new Point((int)flightX+120, (int)flightY));
+            PdfLayoutResult flightResult = flight.Draw(currentPage, new Point((int)flightR+120, (int)flightY));
             float dateY = flightResult.Bounds.Y;
             float dateR = flightResult.Bounds.Right;
-            flightResult = new PdfTextElement($"{model.Flight}", ChangepdfFont).Draw(currentPage, new PointF((int)flightX + 120, flightY + 15));
+            flightResult = new PdfTextElement($"{model.Flight}", changeContentFont).Draw(currentPage, new PointF((int)flightR + 120, flightY + 15));
             float barcodeStartPoint = flightResult.Bounds.X;
 
             //Date
             var date = new PdfTextElement("Date", titleFont);
             PdfLayoutResult dateResult = date.Draw(currentPage, new Point((int)dateR + 100, (int)dateY));
-            dateResult = new PdfTextElement($"{model.Date}", ChangepdfFont).Draw(currentPage, new PointF((int)dateR + 100, dateY + 15));
-            float datebottom = dateResult.Bounds.Bottom;
+            dateResult = new PdfTextElement($"{model.Date}", changeContentFont).Draw(currentPage, new PointF((int)dateR + 100, dateY + 15));
+            float timeY = dateResult.Bounds.Bottom;
 
             //To
             var destination = new PdfTextElement("To", titleFont);
             result = destination.Draw(currentPage, new Point((int)x, (int)result.Bounds.Bottom + 15));
             result = new PdfTextElement($"{model.To}", contentFont).Draw(currentPage, new PointF(x, result.Bounds.Bottom + 2));
-            float toright = result.Bounds.Bottom;
+            float seatY = result.Bounds.Bottom;
 
             //Time
             var time = new PdfTextElement("Time", titleFont);
-            PdfLayoutResult timeResult = time.Draw(currentPage, new Point((int)dateR + 100,(int) datebottom+10));           
-            timeResult = new PdfTextElement($"{model.Time}", ChangepdfFont, PdfBrushes.Red).Draw(currentPage, new PointF((int)dateR + 100, timeResult.Bounds.Bottom + 2));
-            float timebottom = timeResult.Bounds.Bottom;
+            PdfLayoutResult timeResult = time.Draw(currentPage, new Point((int)dateR + 100,(int)timeY + 10));           
+            timeResult = new PdfTextElement($"{model.Time}", changeContentFont, PdfBrushes.Red).Draw(currentPage, new PointF((int)dateR + 100, timeResult.Bounds.Bottom + 2));
+            float barcodeEndPoint = timeResult.Bounds.Bottom;
 
             //Gate
             var gate = new PdfTextElement("Gate", titleFont);
             result = gate.Draw(currentPage, new Point((int)x, (int)result.Bounds.Bottom + 15));
-            float gateX = result.Bounds.Right + 30;
-            result = new PdfTextElement($"{model.Gate}", ChangepdfFont).Draw(currentPage, new PointF(x, result.Bounds.Bottom));           
+            float seatX = result.Bounds.Right + 30;
+            result = new PdfTextElement($"{model.Gate}", changeContentFont).Draw(currentPage, new PointF(x, result.Bounds.Bottom));           
             
 
             //Seat
             var seat = new PdfTextElement("Seat", titleFont);
-            PdfLayoutResult seatresult = seat.Draw(currentPage, new Point((int)gateX, (int)toright+15));
-            seatresult = new PdfTextElement($"{model.Seat}", ChangepdfFont).Draw(currentPage, new PointF((int)seatresult.Bounds.X, (int)seatresult.Bounds.Bottom));
+            PdfLayoutResult leftSeatResult = seat.Draw(currentPage, new Point((int)seatX, (int)seatY + 15));
+            leftSeatResult = new PdfTextElement($"{model.Seat}", changeContentFont).Draw(currentPage, new PointF((int)leftSeatResult.Bounds.X, (int)leftSeatResult.Bounds.Bottom));
 
-            FileStream FooterStream = new FileStream(@"../../../Assets/Fonts/Open Sans Light.ttf", FileMode.Open, FileAccess.Read);
-            PdfFont footerFont = new PdfTrueTypeFont(FooterStream, 8);
+            FileStream footerStream = new FileStream(@"../../../Assets/Fonts/Open Sans Light.ttf", FileMode.Open, FileAccess.Read);
+            PdfFont footerFont = new PdfTrueTypeFont(footerStream, 8);
             var footerText = new PdfTextElement("*Gate Closes 30 Minutes Before Departure", footerFont, PdfBrushes.Red);
             result = footerText.Draw(currentPage, new Point((int)x,(int) result.Bounds.Bottom + 18));
 
             //Barcode
             PdfCode39Barcode barcode = new PdfCode39Barcode();
             barcode.Text = "CODE39$";
-            barcode.Size = new SizeF(dateResult.Bounds.Right-240, 30);
+            barcode.Size = new SizeF(dateResult.Bounds.Right/2, 30);
             barcode.TextDisplayLocation = TextLocation.None;
-            barcode.Draw(currentPage, new PointF(barcodeStartPoint, (int)timebottom+18));
+            barcode.Draw(currentPage, new PointF(barcodeStartPoint, (int)barcodeEndPoint + 18));
 
             //DashLine
             var pen = new PdfPen(Color.Gray, 1);
@@ -143,9 +143,10 @@ namespace BoardingPassProject
             currentPage.Graphics.DrawLine(pen, 500, 0, 500, currentPage.GetClientSize().Height);
 
 
+
             //Right side Boarding Pass:
-            PdfFont righttitleFont = new PdfTrueTypeFont(headerfontStream, 15);
-            currentPage.Graphics.DrawString("BOARDING PASS", righttitleFont, PdfBrushes.White, new PointF(500 + 30, 8));
+            PdfFont rightTitleFont = new PdfTrueTypeFont(headerfontStream, 15);
+            currentPage.Graphics.DrawString("BOARDING PASS", rightTitleFont, PdfBrushes.White, new PointF(500 + 30, 8));
 
             //PassengerName
             var rightPassengerName = new PdfTextElement("Passenger Name", titleFont);
@@ -161,7 +162,7 @@ namespace BoardingPassProject
             var rightTo = new PdfTextElement("To", titleFont);
             result = rightTo.Draw(currentPage, new Point(500 + 20, (int)result.Bounds.Bottom + 15));         
             result = new PdfTextElement($"{model.To}", contentFont).Draw(currentPage, new PointF(500 + 20, (int)result.Bounds.Bottom + 2));
-            float tobottom = result.Bounds.Bottom;
+            float toBottom = result.Bounds.Bottom;
 
             //Flight
             var rightFlight = new PdfTextElement("Flight", titleFont);
@@ -172,10 +173,10 @@ namespace BoardingPassProject
 
             //Date
             var rightDate = new PdfTextElement("Date", titleFont);
-            PdfLayoutResult dateresult = rightDate.Draw(currentPage, new Point((int)flightRight + 50, (int)tobottom +10));
-            float dateLeft = dateresult.Bounds.Left ;
-            dateresult = new PdfTextElement($"{model.Date}", contentFont).Draw(currentPage, new PointF((int)flightRight +50, (int)dateresult.Bounds.Bottom + 2));
-            float datecontentBttom = dateresult.Bounds.Bottom;
+            PdfLayoutResult rightDateResult = rightDate.Draw(currentPage, new Point((int)flightRight + 50, (int)toBottom +10));
+            float dateLeft = rightDateResult.Bounds.Left ;
+            rightDateResult = new PdfTextElement($"{model.Date}", contentFont).Draw(currentPage, new PointF((int)flightRight +50, (int)rightDateResult.Bounds.Bottom + 2));
+            float datecontentBttom = rightDateResult.Bounds.Bottom;
 
             //Gate
             var rightGate = new PdfTextElement("Gate", titleFont);
@@ -184,14 +185,14 @@ namespace BoardingPassProject
             result = new PdfTextElement($"{model.Gate}", contentFont).Draw(currentPage, new PointF(500 + 20, (int)result.Bounds.Bottom + 2));
 
             //Seat
-            var rightseat = new PdfTextElement("Seat", titleFont);
-            PdfLayoutResult seatResult = rightseat.Draw(currentPage, new Point((int)gateRight + 20, (int)rightflightbottom));
+            var rightSeat = new PdfTextElement("Seat", titleFont);
+            PdfLayoutResult seatResult = rightSeat.Draw(currentPage, new Point((int)gateRight + 20, (int)rightflightbottom));
             seatResult = new PdfTextElement($"{model.Seat}", contentFont).Draw(currentPage, new PointF((int)gateRight + 20, seatResult.Bounds.Bottom + 2));
 
             //Time
-            var righttime = new PdfTextElement("Time", titleFont);
-            PdfLayoutResult righttimeResult = righttime.Draw(currentPage, new Point((int)dateLeft, (int)datecontentBttom+10));   
-            righttimeResult = new PdfTextElement($"{model.Time}", contentFont).Draw(currentPage, new PointF((int)dateLeft , righttimeResult.Bounds.Bottom + 2));
+            var rightTime = new PdfTextElement("Time", titleFont);
+            PdfLayoutResult rightTimeResult = rightTime.Draw(currentPage, new Point((int)dateLeft, (int)datecontentBttom+10));   
+            rightTimeResult = new PdfTextElement($"{model.Time}", contentFont).Draw(currentPage, new PointF((int)dateLeft , rightTimeResult.Bounds.Bottom + 2));
 
             return result;
             
