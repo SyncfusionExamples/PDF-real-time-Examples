@@ -14,7 +14,6 @@ namespace BoardingPassProject
          
         public static BoardingPassModel GetDetails()
         {
-         
             var dateTime = DateTime.Now;
             
             return new BoardingPassModel
@@ -24,7 +23,6 @@ namespace BoardingPassProject
                 To = "San Francisco",
                 Flight = "85SKL",
                 Date= dateTime.ToString("dd MMM yyyy"),
-                //Date =dateTime.ToString("ddd MMM %d, yyyy"),
                 Time = dateTime.ToString("t"),
                 Gate = "08",
                 Seat = "15B",
