@@ -15,7 +15,7 @@ using System.Xml.Linq;
 
 namespace BoardingPassProject
 {
-    internal class BoardingPassDocument
+    public class BoardingPassDocument
     {
         BoardingPassModel model;
         PdfPage currentPage;
