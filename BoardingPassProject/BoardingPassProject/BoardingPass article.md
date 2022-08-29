@@ -275,7 +275,7 @@ The Passenger details in left and side of the ticket is added in this method
 
 #### 6. The generated **PDF file** must look as shown below:
 
-The resulting BoardingPass.pdf document can be accessed [here](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/BoardingPassProject/results/BoardingPass.pdf).
+The resulting BoardingPass.pdf document can be accessed [here](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE3950/results/BoardingPass.pdf).
 
 
 
