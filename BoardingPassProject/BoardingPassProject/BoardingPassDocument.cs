@@ -154,24 +154,24 @@ namespace BoardingPassProject
             //PassengerName
             var rightPassengerName = new PdfTextElement("Passenger Name", titleFont);
             result = rightPassengerName.Draw(currentPage, new Point(500 + 20, (int)y));
-            result = new PdfTextElement($" {model.PassengerName}", contentFont).Draw(currentPage, new PointF(500 + 20, result.Bounds.Bottom + 2));
+            result = new PdfTextElement($" {model.PassengerName}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
 
             //From
             var rightFrom = new PdfTextElement("From", titleFont);
-            result = rightFrom.Draw(currentPage, new Point(500 + 20,(int) result.Bounds.Bottom+15));           
-            result = new PdfTextElement($" {model.From}", contentFont).Draw(currentPage, new PointF(500 + 20,result.Bounds.Bottom +2));
+            result = rightFrom.Draw(currentPage, new Point((int)result.Bounds.X, (int) result.Bounds.Bottom+15));           
+            result = new PdfTextElement($" {model.From}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom +2));
 
             //To
             var rightTo = new PdfTextElement("To", titleFont);
-            result = rightTo.Draw(currentPage, new Point(500 + 20, (int)result.Bounds.Bottom + 15));         
-            result = new PdfTextElement($"{model.To}", contentFont).Draw(currentPage, new PointF(500 + 20, result.Bounds.Bottom + 2));
+            result = rightTo.Draw(currentPage, new Point((int)result.Bounds.X, (int)result.Bounds.Bottom + 15));         
+            result = new PdfTextElement($"{model.To}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
             float dateRight = result.Bounds.Right+2;
 
             //Flight
             var rightFlight = new PdfTextElement("Flight", titleFont);
-            result = rightFlight.Draw(currentPage, new Point(500 + 20, (int)result.Bounds.Bottom + 10));
+            result = rightFlight.Draw(currentPage, new Point((int)result.Bounds.X, (int)result.Bounds.Bottom + 10));
             float flightBottom = result.Bounds.Y;
-            result = new PdfTextElement($"{model.Flight}", contentFont).Draw(currentPage, new PointF(500 + 20,result.Bounds.Bottom + 2));
+            result = new PdfTextElement($"{model.Flight}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
             //float flightRight = result.Bounds.Right +50; 
 
             //Date
@@ -182,10 +182,10 @@ namespace BoardingPassProject
 
             //Gate
             var rightGate = new PdfTextElement("Gate", titleFont);
-            result = rightGate.Draw(currentPage, new Point(500 + 20, (int)result.Bounds.Bottom + 10));
+            result = rightGate.Draw(currentPage, new Point((int)result.Bounds.X, (int)result.Bounds.Bottom + 10));
             float gateRight = result.Bounds.Right+20;
             float gateY =result.Bounds.Y;
-            result = new PdfTextElement($"{model.Gate}", contentFont).Draw(currentPage, new PointF(500 + 20, result.Bounds.Bottom + 2));
+            result = new PdfTextElement($"{model.Gate}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
 
             //Seat
             var rightSeat = new PdfTextElement("Seat", titleFont);
