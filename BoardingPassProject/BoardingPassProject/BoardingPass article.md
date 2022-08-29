@@ -16,7 +16,7 @@ The example source is available in [repo](https://github.com/SyncfusionExamples/
 # Description
 
 ### Image
-Image of the logo of the airplane is located in the **Assets/Image/images.png*.
+Image of the logo of the airplane is located in the **Assets/Image/images.png**.
 
 ### Output file
 The example creates the file **BoardingPass.pdf** in the output **bin/(debug|release)/net6.0** folder.
