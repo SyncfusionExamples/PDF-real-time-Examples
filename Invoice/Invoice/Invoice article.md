@@ -525,5 +525,5 @@ This method is used to add the ordered item like item name,rate,quantity,discoun
         }
 ```
 #### 5. Generated **PDF file** must look as shown below:
-The resulting Invoice.pdf document can be accessed [here](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/invoice/results/invoice.pdf).
+The resulting Invoice.pdf document can be accessed [here](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/invoice/Invoice/Invoice/Invoice%20article.md).
     
