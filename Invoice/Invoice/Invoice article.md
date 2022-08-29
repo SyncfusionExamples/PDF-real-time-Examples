@@ -78,7 +78,7 @@ The example creates the file **Invoice.pdf** in the output **bin/(debug|release)
     }
 ```
 
-3.2 Create class for to get and set address
+3.2 Create Address class for to get and set address
 
 ```c#
     public class Address
@@ -525,5 +525,5 @@ This method is used to add the ordered item like item name,rate,quantity,discoun
         }
 ```
 #### 5. Generated **PDF file** must look as shown below:
-The resulting Invoice.pdf document can be accessed [here](https://github.com/gehtsoft-usa/PDF.Flow.Examples/tree/master/Examples/results/Resume.pdf).
+The resulting Invoice.pdf document can be accessed [here](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/invoice/results/invoice.pdf).
     
