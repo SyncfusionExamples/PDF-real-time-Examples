@@ -226,15 +226,15 @@ namespace Invoice
             header.Cells[5].StringFormat = stringFormat;     
             
             PdfGridCellStyle cellStyle = new PdfGridCellStyle();
-            cellStyle.Borders.All= new PdfPen(Color.FromArgb(255, 236, 255, 212));          
+            cellStyle.Borders.All= new PdfPen(Color.FromArgb(255, 236, 231, 231));          
             for (int j = 0; j < grid.Headers[0].Cells.Count; j++)
             {
                 grid.Headers[0].Cells[j].Style = cellStyle;
                 PdfGridCell cell = header.Cells[j];
-                cell.Style.BackgroundBrush = new PdfSolidBrush(Color.FromArgb(255, 236, 255, 212));/*255,236, 255, 212*/
+                cell.Style.BackgroundBrush = new PdfSolidBrush(Color.FromArgb(255, 236, 255, 212));
             }
 
-            float sum = 0;
+            decimal sum = 0;
             int index = 1;
             foreach (var item in model.Items)
             {
@@ -258,8 +258,8 @@ namespace Invoice
                 row.Cells[4].StringFormat = stringFormat;
                 row.Cells[4].StringFormat.LineAlignment = PdfVerticalAlignment.Middle;
 
-                var amount = $"{model.Items.Sum(x => Math.Round((item.Rate*item.Qty * item.Discount / 100),2))}";
-                row.Cells[5].Value = amount;
+                decimal amount = item.Rate * item.Qty * (item.Discount / 100);
+                row.Cells[5].Value = String.Format("{0:0.##}",amount);
                 row.Cells[5].StringFormat = stringFormat;
                 row.Cells[5].StringFormat.LineAlignment = PdfVerticalAlignment.Middle;
                 for (int i = 0; i < row.Cells.Count; i++) 
@@ -272,7 +272,7 @@ namespace Invoice
                     else
                         row.Cells[i].Style.Borders.Bottom = new PdfPen(Color.FromArgb(255, 236, 231, 231));
                 }             
-                sum += float.Parse(amount);
+                sum += amount;
                 index++;
             }
             PdfGridStyle gridStyle = new PdfGridStyle();
@@ -312,8 +312,9 @@ namespace Invoice
             }
             result =element.Draw(currentPage, new RectangleF(totalWidth - size.Width+ fontSize.Width,y, result.Bounds.Width, result.Bounds.Height));
             float firstTaxWidth = result.Bounds.X;
-            var sampletax1 = $"{model.Items.Sum(x => sum * x.SampleTax1 / 100)}";
-            element = new PdfTextElement(sampletax1, contentFont);
+            OrderItem tax=new OrderItem();
+            decimal sampletax1 = sum * (tax.SampleTax1 / 100);
+            element = new PdfTextElement(String.Format("{0:0.##}",sampletax1), contentFont);
             element.StringFormat = new PdfStringFormat(PdfTextAlignment.Right);
             result = element.Draw(currentPage, new RectangleF(30, y, result.Bounds.Width, result.Bounds.Height));
 
@@ -328,8 +329,8 @@ namespace Invoice
             size = contentFont.MeasureString(element.Text);
             result = element.Draw(currentPage, new RectangleF(totalWidth - size.Width+ fontSize.Width,y, result.Bounds.Width, result.Bounds.Height));
             float secondTaxWidth = result.Bounds.X;
-            var sampletax2 = $"{model.Items.Sum(x => sum * x.SampleTax2 / 100)}";
-            element = new PdfTextElement(sampletax2, contentFont);
+            decimal sampletax2 = sum * (tax.SampleTax2 / 100);
+            element = new PdfTextElement(String.Format("{0:0.##}",sampletax2), contentFont);
             element.StringFormat = new PdfStringFormat(PdfTextAlignment.Right);
             result = element.Draw(currentPage, new RectangleF(30, y, result.Bounds.Width, result.Bounds.Height));
 
@@ -348,9 +349,9 @@ namespace Invoice
             SizeF textSize = boldFont.MeasureString(element.Text);
             float x = totalWidth - textSize.Width + fontSize.Width;
             y = y + 9;
-            element.Draw(currentPage, new RectangleF(x,y, result.Bounds.Width, textSize.Height));          
-            float total = float.Parse(sampletax1) + float.Parse(sampletax2) + sum;
-            totalPrice = $"$ {Math.Round(total,2)}";
+            element.Draw(currentPage, new RectangleF(x,y, result.Bounds.Width, textSize.Height));
+            decimal total = sampletax1+sampletax2 + sum;
+            totalPrice = $"$ {String.Format("{0:0.##}",total)}";
 
             element = new PdfTextElement(totalPrice, boldFont );
             textSize = boldFont.MeasureString(element.Text);

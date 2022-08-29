@@ -23,39 +23,23 @@ namespace Invoice.Model
 
     public class OrderItem
     {
+        decimal tax1 = 4.7M, tax2 = 7.0m;
+
         public decimal Rate { get; set; }
         public int Qty { get; set; }
-        public int Discount { get; set; }
+        public decimal Discount { get; set; }
         public decimal Amount { get; set; }
-        public float SampleTax1 { get; set; }
-        public float SampleTax2 { get; set; }
-        public List<string> Name
-        {
-            get
-            {
-                return GetItemValue();
-            }
-            set
-            {
-
-            }
+        public decimal SampleTax1
+        { 
+            get { return tax1; }
+            set { tax1 = value; }
         }
-        public static List<string> item = new List<string>(10);
-
-        public static List<string> GetItemValue()
+        public decimal SampleTax2
         {
-            item.Add("Brochure Design");
-            item.Add("Web Design Packages(Template) - Basic");
-            item.Add("Print Ad - Basic - Color 1.00");
-            item.Add("Brochure Design");
-            item.Add("Web Design Packages(Template) - Basic");
-            item.Add("Print Ad - Basic - Color 1.00");
-            item.Add("Brochure Design");
-            item.Add("Web Design Packages(Template) - Basic");
-            item.Add("Print Ad - Basic - Color 1.00");
-            item.Add("Print Ad - Basic - Color 1.00");
-            return item;
+            get { return tax2; }
+            set { tax1 = value; }
         }
+        public List<string>Name { get; set; }
 
     }
 

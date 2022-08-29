@@ -31,7 +31,7 @@ namespace Invoice
         public static InvoiceModel GetInvoiceDetails()
         {
             var items = Enumerable
-                .Range(1, 100)
+                .Range(1, 5)
                 .Select(i => GenerateRandomOrderItem())
                 .ToList();
 
@@ -54,15 +54,13 @@ namespace Invoice
 
             return new OrderItem
             {
-               // Name = GetItemValue(),
+                Name=GetItemValue(),    
                 Rate = (decimal)Math.Round(Random.NextDouble() * 100, 2),
-                Qty = Random.Next(1, 10),
-                Discount = Random.Next(1, 100),
-                SampleTax1 = 4.7F,
-                SampleTax2=  7.0F,
+                Qty = Random.Next(1, 50),
+                Discount = Random.Next(1, 100),           
                 
-                
-        };
+            };
+            
         }
 
         private static Address GenerateSellerAddress()
