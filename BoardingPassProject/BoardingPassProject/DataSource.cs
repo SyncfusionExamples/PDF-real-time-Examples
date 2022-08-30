@@ -11,7 +11,9 @@ namespace BoardingPassProject
 {
     public static class DataSourceBoardingPassDocument
     {
-         
+        /// <summary>
+        /// Get the BoardingPass details
+        /// </summary>    
         public static BoardingPassModel GetDetails()
         {
             var dateTime = DateTime.Now;
