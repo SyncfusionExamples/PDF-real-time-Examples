@@ -1,0 +1,3 @@
+LeaseAgreement project is an example showing how to generate an Lease Agreement Draft Form document using the PDF library. This example demonstrates how to create a page document that contains paragraphs, and content with various styling. 
+
+Read the [article](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE-3951/LeaseAgreementProblem/LeaseAgreement/LeaseAgreement%20article.md) that describes this example in details.

@@ -450,5 +450,5 @@ This method is used to draw the terms and conditions for lease agreement
         }
 ```
 #### 6. Generated **PDF file** must look as shown below:
-The resulting Invoice.pdf document can be accessed [here](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE-3951/LeaseAgreementProblem/LeaseAgreement/LeaseAgreement.pdf).
+The resulting LeaseAgreement.pdf document can be accessed [here](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE-3951/LeaseAgreementProblem/LeaseAgreement/LeaseAgreement.pdf).
     
