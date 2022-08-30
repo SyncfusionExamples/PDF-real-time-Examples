@@ -139,7 +139,10 @@ The example creates the file **Invoice.pdf** in the output **bin/(debug|release)
     {
         private static Random Random = new Random();
         public static List<string> item = new List<string>(20);
-        
+
+        /// <summary>
+        /// Add the item name
+        /// </summary>
         public static List<string>  GetItemValue()
         {
             item.Add("Brochure Design");
@@ -154,6 +157,9 @@ The example creates the file **Invoice.pdf** in the output **bin/(debug|release)
             item.Add("Print Ad - Basic - Color 1.00");
             return item;
         }
+        /// <summary>
+        /// Get the Invoice details
+        /// </summary>
         public static InvoiceModel GetInvoiceDetails()
         {
             var items = Enumerable
@@ -164,7 +170,7 @@ The example creates the file **Invoice.pdf** in the output **bin/(debug|release)
             return new InvoiceModel
             {
                 InvoiceNumber = "INV-17",//Random.Next(1_000, 10_000),
-                RefNumber = Random.Next(1_000, 10_000),
+                RefNumber = 321014,//Random.Next(1_000, 10_000),
                 IssueDate = DateOnly.FromDateTime(new DateTime(2016,02,24)),
                 DueDate = DateOnly.FromDateTime(new DateTime(2016, 02, 24) + TimeSpan.FromDays(14)),
 
@@ -174,7 +180,9 @@ The example creates the file **Invoice.pdf** in the output **bin/(debug|release)
                 Items = items,               
             };
         }
-
+        /// <summary>
+        /// Generate the random order item
+        /// </summary>
         private static OrderItem GenerateRandomOrderItem()
         {
 
@@ -188,7 +196,9 @@ The example creates the file **Invoice.pdf** in the output **bin/(debug|release)
             };
             
         }
-
+        /// <summary>
+        /// Set the seller address
+        /// </summary>
         private static Address GenerateSellerAddress()
         {
             return new Address
@@ -201,6 +211,9 @@ The example creates the file **Invoice.pdf** in the output **bin/(debug|release)
                 Phone = "KS 66872",
             };
         }
+        /// <summary>
+        /// Set the customer address
+        /// </summary>
         private static Address GenerateCustomerAddress()
         {
             return new Address
