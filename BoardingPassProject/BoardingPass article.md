@@ -3,7 +3,7 @@
 # Purpose
 The BoardingPass project is an example of the boarding pass generation. The example demonstrates a simple one-page document that includes a text, images. This example also demonstrates the usage of margins.
 
-The example source is available in [repo](https://github.com/SyncfusionExamples/PDF-real-time-Examples/BoardingPass).
+The example source is available in [repo](https://github.com/SyncfusionExamples/PDF-real-time-Examples/EJDOTNETCORE3950/BoardingPassProject/BoardingPassProject).
 
 # Prerequisites
 1) **Visual Studio 2017** or above is installed.
