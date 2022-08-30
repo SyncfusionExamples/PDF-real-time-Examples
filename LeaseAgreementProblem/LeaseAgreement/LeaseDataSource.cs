@@ -8,8 +8,15 @@ using System.Threading.Tasks;
 
 namespace LeaseAgreement
 {
-    internal class LeaseDataSource
+    /// <summary>
+    /// Lease data source class
+    /// </summary>
+    public class LeaseDataSource
     {
+        /// <summary>
+        /// Get month lease details
+        /// </summary>
+        /// <returns>lease model details</returns>
         public static LeaseModel GetMonthLeaseDetails()
         {
             return new LeaseModel
@@ -26,6 +33,10 @@ namespace LeaseAgreement
                 TermsofLease = GenerateTermsofLeaseDetails(),
             };
         }
+        /// <summary>
+        /// Generate the parties details
+        /// </summary>
+        /// <returns>Parties details</returns>
         private static Parties GeneratePartiesDetails()
         {
             return new Parties
@@ -38,6 +49,10 @@ namespace LeaseAgreement
                 PropertyDetails = GeneratePropertyDetails(),
             };
         }
+        /// <summary>
+        /// Generate the property details
+        /// </summary>
+        /// <returns>Property details</returns>
         private static PropertyDetails GeneratePropertyDetails()
         {
             return new PropertyDetails
@@ -48,7 +63,10 @@ namespace LeaseAgreement
                 PinCode = 20062,
             };
         }
-
+        /// <summary>
+        /// Generate the lease period details
+        /// </summary>
+        /// <returns>lease period details</returns>
         private static LeasePeriod GenerateLeasePeriod()
         {
             return new LeasePeriod
@@ -60,7 +78,10 @@ namespace LeaseAgreement
                 SecurityDebitAmount = 890.00f,
             };
         }
-
+        /// <summary>
+        /// Generate the other occupants details
+        /// </summary>
+        /// <returns>Other occupants details</returns>
         private static OtherOccupants GenerateOtherOccupants1()
         {
             return new OtherOccupants
@@ -71,6 +92,10 @@ namespace LeaseAgreement
                 RelationShip = "Intege",
             };
         }
+        /// <summary>
+        /// Generate the other occupants details
+        /// </summary>
+        /// <returns>Other occupants details</returns>
         private static OtherOccupants GenerateOtherOccupants2()
         {
             return new OtherOccupants
@@ -81,6 +106,10 @@ namespace LeaseAgreement
                 RelationShip = "Maecen",
             };
         }
+        /// <summary>
+        /// Generate the Agreement signature
+        /// </summary>
+        /// <returns>agreement signature</returns>
         private static AgreementSignature GenerateAgreementSignature1()
         {
             return new AgreementSignature
@@ -89,6 +118,10 @@ namespace LeaseAgreement
             };
         }
 
+        /// <summary>
+        /// Generate the Agreement signature
+        /// </summary>
+        /// <returns>agreement signature</returns>
         private static AgreementSignature GenerateAgreementSignature2()
         {
             return new AgreementSignature
@@ -96,6 +129,10 @@ namespace LeaseAgreement
                 Signature = " ",
             };
         }
+        /// <summary>
+        /// Generate the terms of lease details
+        /// </summary>
+        /// <returns>Terma of lease details</returns>
         private static TermsofLease GenerateTermsofLeaseDetails()
         {
             string json = File.ReadAllText(@"..\..\..\Data\StringofData.json");

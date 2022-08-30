@@ -41,26 +41,60 @@ The example creates the file **LeaseAgreement.pdf** in the output **bin/(debug|r
 #### 3. Create class for Lease model to get and set LeaseAgreement data
 
 ```c#
-    public class LeaseModel
+    /// <summary>
+    /// LeaseModel class.
+    /// </summary>
+     public class LeaseModel
     {
+        /// <summary>
+        /// Get or set the title
+        /// </summary>
         public string Title { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the company name
+        /// </summary>
+        
         public string CompanyName { get; set; }
 
+        /// <summary>
+        /// Get or set the title
+        /// </summary>
         public string FormDate { get; set; }
 
+        /// <summary>
+        /// Get or set the parties
+        /// </summary>
         public Parties Parties { get; set; }
 
+        /// <summary>
+        /// Get or set the lease period
+        /// </summary>
         public LeasePeriod LeasePeriod { get; set; }
 
+        /// <summary>
+        /// Get or set the other occupants
+        /// </summary>
         public OtherOccupants OtherOccupants1 { get; set; }
 
+        /// <summary>
+        /// Get or set the other occupants
+        /// </summary>
         public OtherOccupants OtherOccupants2 { get; set; }
 
+        /// <summary>
+        /// Get or set the lessor signature
+        /// </summary>
         public AgreementSignature LessorSignature { get; set; }
 
+        /// <summary>
+        /// Get or set the lessor signature
+        /// </summary>
         public AgreementSignature LesseeSignature { get; set; }
 
+        /// <summary>
+        /// Get or set the Terms of Lease
+        /// </summary>
         public TermsofLease TermsofLease { get; set; }
     }
 ```
@@ -68,18 +102,40 @@ The example creates the file **LeaseAgreement.pdf** in the output **bin/(debug|r
 3.1. Create class for Parties details to get and set Parties details
 
 ```c#
-     public class Parties
+    /// <summary>
+    /// Parties class
+    /// </summary>
+    public class Parties
     {
+        /// <summary>
+        /// Get or set the title
+        /// </summary>
         public string Title { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the lessor
+        /// </summary>
         public string Lessor { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the Lessee
+        /// </summary>
         public string Lessee { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the lease term
+        /// </summary>
         public string LeaseTerm { get; set; }
 
+        /// <summary>
+        /// Get or set the property details
+        /// </summary>
         public PropertyDetails PropertyDetails { get; set; }
 
+
+        /// <summary>
+        /// Get or set the payment period
+        /// </summary>
         public DateTime PaymentPeriod { get; set; }
 
     }
@@ -88,76 +144,160 @@ The example creates the file **LeaseAgreement.pdf** in the output **bin/(debug|r
 3.2. Create Property Details class for to get and set PropertyDetails
 
 ```c#
+    /// <summary>
+    /// Property details class
+    /// </summary>
     public class PropertyDetails
     {
+        /// <summary>
+        /// Get or set the plat number
+        /// </summary>
         public string PlatNo { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the street
+        /// </summary>
         public string Street { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the city
+        /// </summary>
         public string City { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the pincode
+        /// </summary>
         public int PinCode { get; set; }
     }
 ```
 3.3. Create Lease Period class for to get and set Lease Period details
 
 ```c#
-   public class LeasePeriod
+   /// <summary>
+    /// Lease period class
+    /// </summary>
+    public class LeasePeriod
     {
+        /// <summary>
+        /// Get or set the title
+        /// </summary>
         public string Title { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the lease form
+        /// </summary>
         public string LeaseFrom { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the lease until
+        /// </summary>
         public string LeaseUntil { get; set; }
 
+        /// <summary>
+        /// Get or set the security debit amount
+        /// </summary>
         public float SecurityDebitAmount { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the monthly lease amount
+        /// </summary>
         public float MonthlyLeaseAmount { get; set; }
     }
 ```
 3.4. Create Other Occupants class for to get and set Other Occupants details
 
 ```c#
-   public class OtherOccupants
+    /// <summary>
+    /// Other occupants class
+    /// </summary>
+    public class OtherOccupants
     {
+        /// <summary>
+        /// Get or set the title
+        /// </summary>
         public string Title { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the name
+        /// </summary>
         public string Name { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the relationship
+        /// </summary>
         public string RelationShip { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the date of birth
+        /// </summary>
         public string DateofBirth { get; set; }
     }
 ```
 3.5. Create Agreement Signature class for to get and set Agreement Signature details
 
 ```c#
- public class AgreementSignature
+    /// <summary>
+    /// Agreement signature class
+    /// </summary>
+    public class AgreementSignature
     {
+        /// <summary>
+        /// Get or set the signature
+        /// </summary>
         public string Signature { get; set; }
     }
 ```
 3.6. Create Terms of Lease class for to get and set Terms of Lease details
 
 ```c#
-   public class TermsofLease
+    /// <summary>
+    /// Terms of lease class
+    /// </summary>
+    public class TermsofLease
     {
+        /// <summary>
+        /// Get or set the title
+        /// </summary>
         public string Title { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the Use and Occupancy
+        /// </summary>
         public string UseandOccupancy { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the Assignment and Sublease
+        /// </summary>
         public string AssignmentandSublease { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the Rent
+        /// </summary>
         public string Rent { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the Abandonment
+        /// </summary>
         public string Abandonment { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the Necessary Expenses
+        /// </summary>
         public string NecessaryExpenses { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the Judicial Action
+        /// </summary>
         public string JudicialAction { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the Improvements to the Premises
+        /// </summary>
         public string ImprovementPremises { get; set; }
-		
+
+        /// <summary>
+        /// Get or set the Pets
+        /// </summary>
         public string Pets { get; set; }
 
     }
@@ -166,8 +306,15 @@ The example creates the file **LeaseAgreement.pdf** in the output **bin/(debug|r
 #### 4. Create class for Lease data source to get and set Lease details.	
 
 ```c#
-   internal class LeaseDataSource
+    /// <summary>
+    /// Lease data source class
+    /// </summary>
+    public class LeaseDataSource
     {
+        /// <summary>
+        /// Get month lease details
+        /// </summary>
+        /// <returns>lease model details</returns>
         public static LeaseModel GetMonthLeaseDetails()
         {
             return new LeaseModel
@@ -184,6 +331,10 @@ The example creates the file **LeaseAgreement.pdf** in the output **bin/(debug|r
                 TermsofLease = GenerateTermsofLeaseDetails(),
             };
         }
+        /// <summary>
+        /// Generate the parties details
+        /// </summary>
+        /// <returns>Parties details</returns>
         private static Parties GeneratePartiesDetails()
         {
             return new Parties
@@ -196,6 +347,10 @@ The example creates the file **LeaseAgreement.pdf** in the output **bin/(debug|r
                 PropertyDetails = GeneratePropertyDetails(),
             };
         }
+        /// <summary>
+        /// Generate the property details
+        /// </summary>
+        /// <returns>Property details</returns>
         private static PropertyDetails GeneratePropertyDetails()
         {
             return new PropertyDetails
@@ -206,7 +361,10 @@ The example creates the file **LeaseAgreement.pdf** in the output **bin/(debug|r
                 PinCode = 20062,
             };
         }
-
+        /// <summary>
+        /// Generate the lease period details
+        /// </summary>
+        /// <returns>lease period details</returns>
         private static LeasePeriod GenerateLeasePeriod()
         {
             return new LeasePeriod
@@ -218,7 +376,10 @@ The example creates the file **LeaseAgreement.pdf** in the output **bin/(debug|r
                 SecurityDebitAmount = 890.00f,
             };
         }
-
+        /// <summary>
+        /// Generate the other occupants details
+        /// </summary>
+        /// <returns>Other occupants details</returns>
         private static OtherOccupants GenerateOtherOccupants1()
         {
             return new OtherOccupants
@@ -229,6 +390,10 @@ The example creates the file **LeaseAgreement.pdf** in the output **bin/(debug|r
                 RelationShip = "Intege",
             };
         }
+        /// <summary>
+        /// Generate the other occupants details
+        /// </summary>
+        /// <returns>Other occupants details</returns>
         private static OtherOccupants GenerateOtherOccupants2()
         {
             return new OtherOccupants
@@ -239,6 +404,10 @@ The example creates the file **LeaseAgreement.pdf** in the output **bin/(debug|r
                 RelationShip = "Maecen",
             };
         }
+        /// <summary>
+        /// Generate the Agreement signature
+        /// </summary>
+        /// <returns>agreement signature</returns>
         private static AgreementSignature GenerateAgreementSignature1()
         {
             return new AgreementSignature
@@ -247,6 +416,10 @@ The example creates the file **LeaseAgreement.pdf** in the output **bin/(debug|r
             };
         }
 
+        /// <summary>
+        /// Generate the Agreement signature
+        /// </summary>
+        /// <returns>agreement signature</returns>
         private static AgreementSignature GenerateAgreementSignature2()
         {
             return new AgreementSignature
@@ -254,6 +427,10 @@ The example creates the file **LeaseAgreement.pdf** in the output **bin/(debug|r
                 Signature = " ",
             };
         }
+        /// <summary>
+        /// Generate the terms of lease details
+        /// </summary>
+        /// <returns>Terma of lease details</returns>
         private static TermsofLease GenerateTermsofLeaseDetails()
         {
             string json = File.ReadAllText(@"..\..\..\Data\StringofData.json");
@@ -285,7 +462,10 @@ public class LeaseDocument
 Using this method we will draw the current date of right side.
 
 ```c#
- public PdfLayoutResult ComposeDate()
+        /// <summary>
+        /// Compose the date
+        /// </summary>
+        public PdfLayoutResult ComposeDate()
         {
             SizeF fontSize = contentFont.MeasureString(model.FormDate);
             float sizeX = clientSize.Width - fontSize.Width;
@@ -298,6 +478,11 @@ Using this method we will draw the current date of right side.
 This method is used to draw the parties details,property details and terms
 
 ```c#
+        /// <summary>
+        /// Compose the parties details
+        /// </summary>
+        /// <param name="bounds">The rectangle bounds.</param>
+        /// <returns>Pdf Layout Result</returns>
          public PdfLayoutResult ComposeParties(RectangleF bounds)
         {
             float y = bounds.Bottom + margin;
@@ -329,6 +514,11 @@ This method is used to draw the parties details,property details and terms
 This method is used to draw the lease periods and amount details
 
 ```c#
+        /// <summary>
+        /// Compose the lease period details
+        /// </summary>
+        /// <param name="bounds">The rectangle bounds.</param>
+        /// <returns>Pdf Layout Result</returns>
        public PdfLayoutResult ComposeLeasePeriod(RectangleF bounds)
         {
             float y = bounds.Bottom + margin;
@@ -356,6 +546,11 @@ This method is used to draw the lease periods and amount details
 This method is used to draw the occupants, relationships and signature details
 
 ```c#
+        /// <summary>
+        /// Compose the other occupants details
+        /// </summary>
+        /// <param name="bounds">The rectangle bounds.</param>
+        /// <returns>Pdf Layout Result</returns>
        public PdfLayoutResult ComposeOtherOccupants(RectangleF bounds)
         {
             float y = bounds.Bottom + margin;
@@ -394,6 +589,11 @@ This method is used to draw the occupants, relationships and signature details
 This method is used to draw the terms and conditions for lease agreement
 
 ```c#
+        /// <summary>
+        /// Compose the terms of lease details
+        /// </summary>
+        /// <param name="bounds">The rectangle bounds.</param>
+        /// <returns>Pdf Layout Result</returns>
        public PdfLayoutResult ComposeTermsofLease(RectangleF bounds)
         {
             float y = bounds.Bottom;
@@ -450,5 +650,5 @@ This method is used to draw the terms and conditions for lease agreement
         }
 ```
 #### 6. Generated **PDF file** must look as shown below:
-The resulting LeaseAgreement.pdf document can be accessed [here](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE-3951/LeaseAgreementProblem/LeaseAgreement/LeaseAgreement.pdf).
+The resulting LeaseAgreement.pdf document can be accessed [here](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE-3951/Result/LeaseAgreement.pdf).
     

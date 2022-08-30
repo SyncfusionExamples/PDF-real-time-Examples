@@ -10,8 +10,12 @@ using LeaseAgreement.Models;
 
 namespace LeaseAgreement
 {
+    /// <summary>
+    /// Lease data source class
+    /// </summary>
     internal class LeaseDocument
     {
+        #region Fields
         LeaseModel model;
         int margin = 20;
         int Padding = 5;
@@ -21,12 +25,24 @@ namespace LeaseAgreement
         PdfStandardFont contentFont = new PdfStandardFont(PdfFontFamily.Helvetica, 10);
         PdfStandardFont titleFont = new PdfStandardFont(PdfFontFamily.Helvetica, 10, PdfFontStyle.Bold);
         PdfPage currentPage;
+        #endregion
 
+        #region Constructor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LeaseDocument"/> class.
+        /// </summary>
+        /// <param name="LeaseModel">The lease model details.</param>
         public LeaseDocument(LeaseModel model)
         {
             this.model = model;
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// Generate the PDF document
+        /// </summary>
+        /// <param name="Stream">The file stream.</param>
         public void GeneratePdf(Stream stream)
         {
             PdfDocument document = new PdfDocument();
@@ -65,10 +81,18 @@ namespace LeaseAgreement
             document.Save(stream);
             document.Close(true);
         }
+        /// <summary>
+        /// Generate the pages
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="args">The Page Added EventArgs.</param>
         private void Pages_PageAdded(object sender, PageAddedEventArgs args)
         {
             this.currentPage = args.Page;
         }
+        /// <summary>
+        /// Compose the date
+        /// </summary>
         public PdfLayoutResult ComposeDate()
         {
             SizeF fontSize = contentFont.MeasureString(model.FormDate);
@@ -76,6 +100,11 @@ namespace LeaseAgreement
             var result = new PdfTextElement(model.FormDate, contentFont).Draw(currentPage, new PointF(sizeX, 10));
             return result;
         }
+        /// <summary>
+        /// Compose the parties details
+        /// </summary>
+        /// <param name="bounds">The rectangle bounds.</param>
+        /// <returns>Pdf Layout Result</returns>
         public PdfLayoutResult ComposeParties(RectangleF bounds)
         {
             float y = bounds.Bottom + margin;
@@ -101,6 +130,11 @@ namespace LeaseAgreement
             result = new PdfTextElement($"{model.Parties.PaymentPeriod:d}", contentFont).Draw(currentPage, new RectangleF(x, result.Bounds.Bottom + smallTextMargin, halfBounds.Width, halfBounds.Height));
             return result;
         }
+        /// <summary>
+        /// Compose the lease period details
+        /// </summary>
+        /// <param name="bounds">The rectangle bounds.</param>
+        /// <returns>Pdf Layout Result</returns>
         public PdfLayoutResult ComposeLeasePeriod(RectangleF bounds)
         {
             float y = bounds.Bottom + margin;
@@ -122,6 +156,11 @@ namespace LeaseAgreement
             result = new PdfTextElement("$ " + model.LeasePeriod.MonthlyLeaseAmount.ToString(), contentFont).Draw(currentPage, new RectangleF(fourthHalf, result.Bounds.Y, quaterBounds.Width, quaterBounds.Height));
             return result;
         }
+        /// <summary>
+        /// Compose the other occupants details
+        /// </summary>
+        /// <param name="bounds">The rectangle bounds.</param>
+        /// <returns>Pdf Layout Result</returns>
         public PdfLayoutResult ComposeOtherOccupants(RectangleF bounds)
         {
             float y = bounds.Bottom + margin;
@@ -154,6 +193,11 @@ namespace LeaseAgreement
             result = new PdfTextElement(" ", contentFont).Draw(currentPage, new RectangleF(0, result.Bounds.Bottom + largeTextMargin, clientSize.Width, 0));
             return result;
         }
+        /// <summary>
+        /// Compose the terms of lease details
+        /// </summary>
+        /// <param name="bounds">The rectangle bounds.</param>
+        /// <returns>Pdf Layout Result</returns>
         public PdfLayoutResult ComposeTermsofLease(RectangleF bounds)
         {
             float y = bounds.Bottom;
@@ -208,5 +252,6 @@ namespace LeaseAgreement
 
             return result;
         }
+        #endregion
     }
 }
