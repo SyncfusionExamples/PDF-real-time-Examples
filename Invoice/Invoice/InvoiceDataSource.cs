@@ -13,7 +13,10 @@ namespace Invoice
     {
         private static Random Random = new Random();
         public static List<string> item = new List<string>(20);
-        
+
+        /// <summary>
+        /// Add the item name
+        /// </summary>
         public static List<string>  GetItemValue()
         {
             item.Add("Brochure Design");
@@ -28,6 +31,9 @@ namespace Invoice
             item.Add("Print Ad - Basic - Color 1.00");
             return item;
         }
+        /// <summary>
+        /// Get the Invoice details
+        /// </summary>
         public static InvoiceModel GetInvoiceDetails()
         {
             var items = Enumerable
@@ -48,7 +54,9 @@ namespace Invoice
                 Items = items,               
             };
         }
-
+        /// <summary>
+        /// Generate the random order item
+        /// </summary>
         private static OrderItem GenerateRandomOrderItem()
         {
 
@@ -62,7 +70,9 @@ namespace Invoice
             };
             
         }
-
+        /// <summary>
+        /// Set the seller address
+        /// </summary>
         private static Address GenerateSellerAddress()
         {
             return new Address
@@ -75,7 +85,9 @@ namespace Invoice
                 Phone = "KS 66872",
             };
         }
-        //sets the 
+        /// <summary>
+        /// Set the customer address
+        /// </summary>
         private static Address GenerateCustomerAddress()
         {
             return new Address
