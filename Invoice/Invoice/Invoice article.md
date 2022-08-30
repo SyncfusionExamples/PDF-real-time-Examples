@@ -3,7 +3,7 @@
 # Purpose
 The Invoice project is an example of the invoice generation.An invoice is a commercial document issued by a seller to a buyer relating to a sale transaction and indicating the products, quantities, and agreed-upon prices for products or services the seller had provided the buyer.
 
-The example source is available in [repo](https://github.com/SyncfusionExamples/PDF-real-time-Examples/Invoice).
+The example source is available in [repo](https://github.com/SyncfusionExamples/PDF-real-time-Examples/tree/invoice/Invoice/Invoice).
 
 # Prerequisites
 1) **Visual Studio 2017** or above is installed.
