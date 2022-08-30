@@ -1,0 +1,3 @@
+The Invoice project is an example of the invoice generation.An invoice is a commercial document issued by a seller to a buyer relating to a sale transaction and indicating the products, quantities, and agreed-upon prices for products or services the seller had provided the buyer.
+
+Read the [article](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/invoice/Invoice/Invoice/Invoice%20article.md) that describes this example in details.
