@@ -75,6 +75,7 @@ namespace Invoice
                 Phone = "KS 66872",
             };
         }
+        //sets the 
         private static Address GenerateCustomerAddress()
         {
             return new Address

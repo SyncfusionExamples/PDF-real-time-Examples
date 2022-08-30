@@ -15,6 +15,7 @@ namespace Invoice
 
         InvoiceModel model;
         SizeF clientSize;
+        //Initializes a new instance of the Syncfusion.Pdf.Graphics.PdfTrueTypeFont class.
         FileStream standardFontStream = new FileStream("../../../Assets/calibri-regular.ttf", FileMode.Open, FileAccess.Read);
         FileStream boldFontStream = new FileStream("../../../Assets/calibri-bold.ttf", FileMode.Open, FileAccess.Read);
         PdfFont contentFont = null;
