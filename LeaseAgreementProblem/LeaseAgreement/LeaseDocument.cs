@@ -43,8 +43,8 @@ namespace LeaseAgreement
 
             header.Graphics.DrawRectangle(drawRectangle, bounds);
             header.Graphics.DrawImage(image, new PointF(logoWidth, 0), new SizeF(100, 50));
-            header.Graphics.DrawString("Month to Month Lease Agreement", titleFont, drawString, new RectangleF(20, 20, 0, 0));
-            header.Graphics.DrawString("ABCD Company", titleFont, drawString, new RectangleF(logoWidth+10, 35, 0, 0));
+            header.Graphics.DrawString("Month to Month Lease Agreement", titleFont, drawString, new RectangleF(20, 20, clientSize.Width, 0));
+            header.Graphics.DrawString("ABCD Company", titleFont, drawString, new RectangleF(logoWidth+10, 35, clientSize.Width, 0));
 
             document.Template.Top = header;
 
@@ -85,7 +85,7 @@ namespace LeaseAgreement
             currentPage.Graphics.DrawRectangle(brush, new RectangleF(0, y, clientSize.Width, 20));
 
 
-            var result = new PdfTextElement(model.Parties.Title, titleFont).Draw(currentPage, new RectangleF(Padding, y+ Padding,0,0));
+            var result = new PdfTextElement(model.Parties.Title, titleFont).Draw(currentPage, new RectangleF(Padding, y+ Padding, clientSize.Width, 0));
             result = new PdfTextElement("Lessor / Landlord", titleFont).Draw(currentPage, new RectangleF(0, result.Bounds.Bottom + smallTextMargin, halfBounds.Width, halfBounds.Height));
             result = new PdfTextElement("Lessee / Tenant", titleFont).Draw(currentPage, new RectangleF(x, result.Bounds.Y, halfBounds.Width, halfBounds.Height));
             result = new PdfTextElement(model.Parties.Lessor, contentFont).Draw(currentPage, new RectangleF(0, result.Bounds.Bottom + smallTextMargin, halfBounds.Width, halfBounds.Height));
@@ -111,7 +111,7 @@ namespace LeaseAgreement
             RectangleF quaterBounds = new RectangleF(10, 10, (clientSize.Width / 4), (clientSize.Height / 4));
             
             currentPage.Graphics.DrawRectangle(brush, new RectangleF(0, y, clientSize.Width , 20));
-            var result = new PdfTextElement(model.LeasePeriod.Title, titleFont).Draw(currentPage, new RectangleF(Padding, y+ Padding, 0, 0));
+            var result = new PdfTextElement(model.LeasePeriod.Title, titleFont).Draw(currentPage, new RectangleF(Padding, y+ Padding, clientSize.Width, 0));
             result = new PdfTextElement("Lease From", titleFont).Draw(currentPage, new RectangleF(0, result.Bounds.Bottom + smallTextMargin, quaterBounds.Width/1.5f, quaterBounds.Height));
             result = new PdfTextElement("Lease Until", titleFont).Draw(currentPage, new RectangleF(thirdHalf, result.Bounds.Y, quaterBounds.Width/1.5f, quaterBounds.Height));
             result = new PdfTextElement(model.LeasePeriod.LeaseFrom, contentFont).Draw(currentPage, new RectangleF(secondHalf, result.Bounds.Y, quaterBounds.Width/1.5f, quaterBounds.Height));
@@ -150,8 +150,8 @@ namespace LeaseAgreement
             result = new PdfTextElement("Lessee Signature", titleFont).Draw(currentPage, new RectangleF(x, result.Bounds.Y, halfBounds.Width, halfBounds.Height));
             result = new PdfTextElement(model.LessorSignature.Signature, contentFont).Draw(currentPage, new RectangleF(0, result.Bounds.Bottom+ largeTextMargin, halfBounds.Width, halfBounds.Height));
             result = new PdfTextElement(model.LesseeSignature.Signature, contentFont).Draw(currentPage, new RectangleF(x, result.Bounds.Y, halfBounds.Width, halfBounds.Height));
-            result = new PdfTextElement("-----------------------------------------------------------------page break--------------------------------------------------------------", contentFont).Draw(currentPage, new RectangleF(20, result.Bounds.Bottom+30,0,0));
-            result = new PdfTextElement(" ", contentFont).Draw(currentPage, new RectangleF(0, result.Bounds.Bottom + largeTextMargin, 0, 0));
+            result = new PdfTextElement("-----------------------------------------------------------------page break--------------------------------------------------------------", contentFont).Draw(currentPage, new RectangleF(20, result.Bounds.Bottom+30, clientSize.Width, 0));
+            result = new PdfTextElement(" ", contentFont).Draw(currentPage, new RectangleF(0, result.Bounds.Bottom + largeTextMargin, clientSize.Width, 0));
             return result;
         }
         public PdfLayoutResult ComposeTermsofLease(RectangleF bounds)
