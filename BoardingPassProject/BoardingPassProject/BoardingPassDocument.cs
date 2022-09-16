@@ -58,8 +58,11 @@ namespace BoardingPassProject
             //Draw the image.
             currentPage.Graphics.DrawImage(image, 30, 7, 23, 23);
             float airTextStart =image.Width + 15;
+            //Create a text element with the AIRWAY text and font.
             var airWayText = new PdfTextElement("AIRWAY", titleFont, PdfBrushes.White);
+            //Set the format for string.
             airWayText.StringFormat = new PdfStringFormat(PdfTextAlignment.Left);
+            //Draws the element on the page with the specified page and PointF structure
             PdfLayoutResult airResult = airWayText.Draw(currentPage, new RectangleF(airTextStart, 13, 43, 14));
 
 
