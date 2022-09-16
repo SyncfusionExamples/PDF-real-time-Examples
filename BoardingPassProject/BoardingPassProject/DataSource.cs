@@ -25,7 +25,7 @@ namespace BoardingPassProject
                 To = "San Francisco",
                 Flight = "85SKL",
                 Date= dateTime.ToString("dd MMM yyyy"),
-                Time = dateTime.ToString("t"),
+                Time = dateTime.ToString("HH : mm"),
                 Gate = "08",
                 Seat = "15B",
             };
