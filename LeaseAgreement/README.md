@@ -11,8 +11,6 @@
 2) **.NET Core SDK 2.1** or above is installed.
    To install the framework use the following link: https://dotnet.microsoft.com/download
 
-# Description
 
-### Output file
-The example creates the file **LeaseAgreement.pdf** in the output **bin/(debug|release)/net6.0** folder.
-[Click to view output document](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE-3951/Result/LeaseAgreement.pdf).
+### Final generated PDF document
+[Click to view output document](https://github.com/SyncfusionExamples/PDF-real-time-Examples/tree/EJDOTNETCORE-3951/LeaseAgreement/LeaseAgreement/Result/LeaseAgreement.pdf).

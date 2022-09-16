@@ -42,8 +42,8 @@ namespace LeaseAgreement
                 Title = "This Agreement is Executed By and Between the Parties:",
                 Lessor = "Elvis Peckham",
                 Lessee = "Torrin Adrienne",
-                LeaseTerm = "Integer",
-                PaymentPeriod = new DateTime(2018, 07, 25),
+                LeaseTerm = "12 Month",
+                PaymentPeriod = new DateTime(2021, 07, 25),
                 PropertyDetails = GeneratePropertyDetails(),
             };
         }
@@ -70,8 +70,8 @@ namespace LeaseAgreement
             return new LeasePeriod
             {
                 Title = "Lease Period",
-                LeaseFrom = DateTime.Now.ToString("dddd, dd MMMM 2000"),
-                LeaseUntil = DateTime.Now.ToString("dddd, dd MMMM 2016"),
+                LeaseFrom = DateTime.Now.ToString("dddd, dd MMMM 2021"),
+                LeaseUntil = DateTime.Now.ToString("dddd, dd MMMM 2022"),
                 MonthlyLeaseAmount = 1200.00f,
                 SecurityDebitAmount = 890.00f,
             };
@@ -87,7 +87,7 @@ namespace LeaseAgreement
                 Title = "Names of Other Occupant 1",
                 Name = "Dannel Kreuzer",
                 DateofBirth =DateTime.Now,
-                RelationShip = "Intege",
+                RelationShip = "Friend",
             };
         }
         /// <summary>
@@ -99,9 +99,9 @@ namespace LeaseAgreement
             return new OtherOccupants
             {
                 Title = "Names of Other Occupant 2",
-                Name = "Raja",
+                Name = "Elvis peckhan",
                 DateofBirth = DateTime.Now,
-                RelationShip = "Maecen",
+                RelationShip = "Friend",
             };
         }
         /// <summary>
