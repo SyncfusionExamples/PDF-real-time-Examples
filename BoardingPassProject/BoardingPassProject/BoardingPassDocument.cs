@@ -52,6 +52,7 @@ namespace BoardingPassProject
             //Draws the element on the page with the specified page and PointF structure
             PdfLayoutResult boardingResult = headerText.Draw(currentPage, new Point(420 - 25, 12));
             float barcodeStartPoint = boardingResult.Bounds.X;
+
             FileStream imageStream = new FileStream(@"../../../Assets/Image/logo.png", FileMode.Open, FileAccess.Read);
             //Load the image from the stream.
             PdfBitmap image = new PdfBitmap(imageStream);

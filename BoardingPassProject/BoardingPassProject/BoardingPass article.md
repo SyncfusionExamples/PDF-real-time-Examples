@@ -1,26 +1,3 @@
-##### Example: BoardingPass
-
-# Purpose
-The BoardingPass project is an example of the boarding pass generation. The example demonstrates a simple one-page document that includes a text, images. This example also demonstrates the usage of margins.
-
-The example source is available in [repo](https://github.com/SyncfusionExamples/PDF-real-time-Examples/tree/EJDOTNETCORE3950/BoardingPassProject/BoardingPassProject).
-
-# Prerequisites
-1) **Visual Studio 2017** or above is installed.
-   To install a community version of Visual Studio use the following link: https://visualstudio.microsoft.com/vs/community/
-   Please make sure that the way you are going to use Visual Studio is allowed by the community license. You may need to buy Standard or Professional Edition.
-
-2) **.NET Core SDK 2.1** or above is installed.
-   To install the framework use the following link: https://dotnet.microsoft.com/download
-
-# Description
-
-### Image
-Image of the logo of the airplane is located in the **Assets/Image/images.png**.
-
-### Output file
-The example creates the file **BoardingPass.pdf** in the output **bin/(debug|release)/net6.0** folder.
-
 # Writing the source code
 
 #### 1. Create new console application.
@@ -84,7 +61,7 @@ The example creates the file **BoardingPass.pdf** in the output **bin/(debug|rel
                To = "San Francisco",
                Flight = "85SKL",
                Date= dateTime.ToString("dd MMM yyyy"),
-               Time = dateTime.ToString("t"),
+               Time = dateTime.ToString("HH : mm"),
                Gate = "08",
                Seat = "15B",
             };
@@ -105,7 +82,7 @@ public class BoardingPassDocument
             //Change a page orientation to landscape.
             document.PageSettings.Orientation = PdfPageOrientation.Landscape;
             //set the page size.
-            document.PageSettings.Size = new SizeF(700, 288);
+            document.PageSettings.Size = new SizeF(568, 228);
             //Set the margin of the page.
             document.PageSettings.Margins.All = 0;
             //Add a page to the document.
@@ -115,251 +92,220 @@ public class BoardingPassDocument
 
 ```c#
             //Set the bounds for rectangle.
-            RectangleF rectangle = new RectangleF(0,0,700,38);
+            RectangleF rectangle = new RectangleF(0,0,568,36);
             //Draw the rectangle on PDF document.
-            currentPage.Graphics.DrawRectangle(PdfBrushes.DarkBlue, rectangle);
+            currentPage.Graphics.DrawRectangle(new PdfSolidBrush(Color.FromArgb(1, 0, 87, 255)), rectangle);
+            float y = rectangle.Height;
             //Create font.
-            PdfFont titleFont = new PdfTrueTypeFont(headerfontStream, 15);
+            PdfFont titleFont = new PdfTrueTypeFont(headerFontStream, 10, PdfFontStyle.Bold);
             //Create a BOARDING PASS text element with the text and font.
             var headerText = new PdfTextElement("BOARDING PASS", titleFont, PdfBrushes.White);
             //Set the format for string.
             headerText.StringFormat = new PdfStringFormat(PdfTextAlignment.Right);
             //Draws the element on the page with the specified page and PointF structure
-            PdfLayoutResult boardingResult = headerText.Draw(currentPage, new Point(500 - 40, 8));
-            float imageX = boardingResult.Bounds.X-50;
-            FileStream imageStream = new FileStream(@"../../../Assets/Image/images.png", FileMode.Open, FileAccess.Read);
+            PdfLayoutResult boardingResult = headerText.Draw(currentPage, new Point(420 - 25, 12));
+            float barcodeStartPoint = boardingResult.Bounds.X;
+
+            FileStream imageStream = new FileStream(@"../../../Assets/Image/logo.png", FileMode.Open, FileAccess.Read);
             //Load the image from the stream.
             PdfBitmap image = new PdfBitmap(imageStream);
             //Draw the image.
-            currentPage.Graphics.DrawImage(image, imageX, 0, 30, 38);
-            float y = rectangle.Height + 20;
+            currentPage.Graphics.DrawImage(image, 30, 7, 23, 23);
+            float airTextStart =image.Width + 15;
+            //Create a text element with the AIRWAY text and font.
+            var airWayText = new PdfTextElement("AIRWAY", titleFont, PdfBrushes.White);
+            //Set the format for string.
+            airWayText.StringFormat = new PdfStringFormat(PdfTextAlignment.Left);
+            //Draws the element on the page with the specified page and PointF structure
+            PdfLayoutResult airResult = airWayText.Draw(currentPage, new RectangleF(airTextStart, 13, 43, 14));
 
 ```
-5.3. Create FormDetails() method 
+5.3. Draw the dashed line 
+```c#
+            //Initializes a new instance of the PdfPen class with color and width of the pen
+            var pen = new PdfPen(Color.FromArgb(1,197,197, 197), 1);
+            //Gets or sets the dash style of the pen. 
+            pen.DashStyle = PdfDashStyle.Dash;
+            //Gets or sets the dash offset of the pen. 
+            pen.DashOffset = 1f;
+            //Draw the DashLine.
+            currentPage.Graphics.DrawLine(pen, 420, 0, 420, currentPage.GetClientSize().Height);
+```
+5.4. Draw the barcode 
+```c#
+            //Drawing Code39 barcode.
+            PdfQRBarcode barcode = new PdfQRBarcode();
+            //Set the barcode text.
+            barcode.Text = $"{model.Gate}+{model.Seat}+{model.Flight}";
+            //Setting size of the barcode.
+            barcode.Size = new SizeF(80, 80);
+            //Printing barcode on to the Pdf.
+            barcode.Draw(currentPage, new PointF(barcodeStartPoint, y+14));
+```
+5.5. Create FormDetails() method 
 
 The Passenger details in left and right side of the ticket is added in this method
 ```c#
         public PdfLayoutResult FormDetails(float x, float y)
         {
-            FileStream titlefontStream=new FileStream(@"../../../Assets/Fonts/OpenSans-Light.ttf", FileMode.Open, FileAccess.Read);
             //Create font.
-            PdfFont titleFont = new PdfTrueTypeFont(titlefontStream, 12);
-            
-            FileStream contentFontStream = new FileStream(@"../../../Assets/Fonts/OpenSans-Bold.ttf", FileMode.Open, FileAccess.Read);
-            //Create font.
-            PdfFont contentFont = new PdfTrueTypeFont(contentFontStream, 12);
-
+            PdfFont titleFont = new PdfTrueTypeFont(headerFontStream, 10);
+            PdfFont contentFont = new PdfTrueTypeFont(headerFontStream, 10, PdfFontStyle.Bold);
+           
             //Left side:
-            //Create a Passenger Name text element with the text and font.
-            var headerText = new PdfTextElement("Passenger Name", titleFont);
+            //Create a text element with the Passenger Name text and font.
+            var passengerNameText = new PdfTextElement("Passenger Name", titleFont);
             //Draws the element on the page with the specified page and PointF structure
-            var result = headerText.Draw(currentPage, new Point((int)x,(int) y));
+            var result = passengerNameText.Draw(currentPage, new PointF(x,y+14));
             //Initializes a new instance of the PdfTextElement class with the PassengerName text and PdfFont & draw
-            result = new PdfTextElement($" {model.PassengerName}", contentFont).Draw(currentPage, new PointF(x, result.Bounds.Bottom + 2));
-
+            result = new PdfTextElement($"{model.PassengerName}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
+            
 
             //Create a text element with the From text and font.
-            var from = new PdfTextElement("From", titleFont);
+            var fromText = new PdfTextElement("From", titleFont);
             //Draws the element on the page with the specified page and PointF structure
-            result = from.Draw(currentPage, new Point((int)x,(int)result.Bounds.Bottom+15));
-            float flightY = result.Bounds.Y;
-            float flightR=result.Bounds.Right+130;
+            result = fromText.Draw(currentPage, new PointF(result.Bounds.X,result.Bounds.Bottom+5));
             //Initializes a new instance of the PdfTextElement class with the from text and PdfFont and & draw
-            result = new PdfTextElement($" {model.From}", contentFont).Draw(currentPage, new PointF(x, result.Bounds.Bottom + 2));
+            result = new PdfTextElement($"{model.From}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
 
 
-            //Create font.
-            PdfFont changeContentFont = new PdfTrueTypeFont(contentFontStream, 18);
+            //Create a text element with the To text and font.
+            var destinationText = new PdfTextElement("To", titleFont);
+            //Draws the element on the page with the specified page and PointF structure
+            result = destinationText.Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 5));
+            //Initializes a new instance of the PdfTextElement class with the To text and PdfFont & draw
+            result = new PdfTextElement($"{model.To}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
+           
+            float gateRectY = result.Bounds.Bottom + 20;
+            RectangleF rectangle = new RectangleF(0, gateRectY, 419, 50);
+            //Draw the rectangle on PDF document.
+            currentPage.Graphics.DrawRectangle(new PdfSolidBrush(Color.FromArgb(1,226, 242, 255)), rectangle);
+            float gateY = rectangle.Y+10;
+
+            //Create a text element with the gate text and font.
+            var gate = new PdfTextElement("Gate", titleFont);
+            //Draws the element on the page with the specified page and PointF structure
+            result = gate.Draw(currentPage, new PointF(result.Bounds.X, gateY));
+            float seatX = result.Bounds.Right + 30;
+            //Initializes a new instance of the PdfTextElement class with the gate text and PdfFont & draw
+            result = new PdfTextElement($"{model.Gate}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom));
+
+
+            //Create a text element with the seat text and font.
+            var seat = new PdfTextElement("Seat", titleFont);
+            //Draws the element on the page with the specified page and PointF structure
+            PdfLayoutResult leftSeatResult = seat.Draw(currentPage, new PointF(seatX, gateY));
+            float flightX = leftSeatResult.Bounds.Right + 30; 
+            //Initializes a new instance of the PdfTextElement class with the seat text and PdfFont & draw
+            leftSeatResult = new PdfTextElement($"{model.Seat}", contentFont).Draw(currentPage, new PointF(leftSeatResult.Bounds.X, leftSeatResult.Bounds.Bottom));
+
 
             //Create a text element with the Flight text and font.
             var flight = new PdfTextElement("Flight", titleFont);
             //Draws the element on the page with the specified page and PointF structure
-            PdfLayoutResult flightResult = flight.Draw(currentPage, new Point((int)flightR, (int)flightY));
-            float dateY = flightResult.Bounds.Y;
-            float dateR = flightResult.Bounds.Right +100 ;
+            PdfLayoutResult flightResult = flight.Draw(currentPage, new PointF(flightX, gateY));
+            float dateR = flightResult.Bounds.Right + 34;
             //Initializes a new instance of the PdfTextElement class with the flight text and PdfFont & draw
-            flightResult = new PdfTextElement($"{model.Flight}", changeContentFont).Draw(currentPage, new PointF(flightResult.Bounds.X, flightResult.Bounds.Bottom));
-            float barcodeStartPoint = flightResult.Bounds.X;
+            flightResult = new PdfTextElement($"{model.Flight}", contentFont).Draw(currentPage, new PointF(flightResult.Bounds.X, flightResult.Bounds.Bottom));
 
 
             //Create a text element with the date text and font.
             var date = new PdfTextElement("Date", titleFont);
             //Draws the element on the page with the specified page and PointF structure
-            PdfLayoutResult dateResult = date.Draw(currentPage, new Point((int)dateR, (int)dateY));
+            PdfLayoutResult dateResult = date.Draw(currentPage, new PointF(dateR, gateY));
             //Initializes a new instance of the PdfTextElement class with the date text and PdfFont & draw
-            dateResult = new PdfTextElement($"{model.Date}", changeContentFont).Draw(currentPage, new PointF(dateResult.Bounds.X /*dateR*/, dateResult.Bounds.Bottom));
-            float timeY = dateResult.Bounds.Bottom;
-
-
-            //Create a text element with the To text and font.
-            var destination = new PdfTextElement("To", titleFont);
-            //Draws the element on the page with the specified page and PointF structure
-            result = destination.Draw(currentPage, new Point((int)x, (int)result.Bounds.Bottom + 15));
-            //Initializes a new instance of the PdfTextElement class with the To text and PdfFont & draw
-            result = new PdfTextElement($"{model.To}", contentFont).Draw(currentPage, new PointF(x, result.Bounds.Bottom + 2));
-
+            dateResult = new PdfTextElement($"{model.Date}", contentFont).Draw(currentPage, new PointF(dateResult.Bounds.X, dateResult.Bounds.Bottom));
+            //float timeY = dateResult.Bounds.Bottom;
+            float timeR = dateResult.Bounds.Right +30;
 
             //Create a text element with the time text and font.
             var time = new PdfTextElement("Time", titleFont);
             //Draws the element on the page with the specified page and PointF structure
-            PdfLayoutResult timeResult = time.Draw(currentPage, new Point((int)dateR,(int)timeY + 10));
+            PdfLayoutResult timeResult = time.Draw(currentPage, new PointF(timeR, gateY));
             //Initializes a new instance of the PdfTextElement class with the time text and PdfFont & draw
-            timeResult = new PdfTextElement($"{model.Time}", changeContentFont, PdfBrushes.Red).Draw(currentPage, new PointF(timeResult.Bounds.X, timeResult.Bounds.Bottom));
-            float barcodeEndPoint = timeResult.Bounds.Bottom;
+            timeResult = new PdfTextElement($"{model.Time}", contentFont).Draw(currentPage, new PointF(timeResult.Bounds.X, timeResult.Bounds.Bottom));
 
-
-            //Create a text element with the gate text and font.
-            var gate = new PdfTextElement("Gate", titleFont);
-            //Draws the element on the page with the specified page and PointF structure
-            result = gate.Draw(currentPage, new Point((int)x, (int)result.Bounds.Bottom + 15));
-            float seatY = result.Bounds.Y;
-            float seatX = result.Bounds.Right + 30;
-            //Initializes a new instance of the PdfTextElement class with the gate text and PdfFont & draw
-            result = new PdfTextElement($"{model.Gate}", changeContentFont).Draw(currentPage, new PointF(x, result.Bounds.Bottom));
-
-
-            //Create a seat text element with the text and font.
-            var seat = new PdfTextElement("Seat", titleFont);
-            //Draws the element on the page with the specified page and PointF structure
-            PdfLayoutResult leftSeatResult = seat.Draw(currentPage, new Point((int)seatX, (int)seatY));
-            //Initializes a new instance of the PdfTextElement class with the seat text and PdfFont & draw
-            leftSeatResult = new PdfTextElement($"{model.Seat}", changeContentFont).Draw(currentPage, new PointF(leftSeatResult.Bounds.X, leftSeatResult.Bounds.Bottom));
-
-
-            //Create font.
-            PdfFont footerFont = new PdfTrueTypeFont(titlefontStream, 8);
-            //Create a  text element with the text and font.
-            var footerText = new PdfTextElement("*Gate Closes 30 Minutes Before Departure", footerFont, PdfBrushes.Red);
-            //Draws the element on the page with the specified page and PointF structure
-            result = footerText.Draw(currentPage, new Point((int)x,(int) result.Bounds.Bottom + 18));
-
-
-            //Drawing Code39 barcode.
-            PdfCode39Barcode barcode = new PdfCode39Barcode();
-            //Set the barcode text.
-            barcode.Text = "CODE39$";
-            //Setting size of the barcode.
-            barcode.Size = new SizeF(dateResult.Bounds.Right/2, 30);
-            //Set the TextDisplayLocation.
-            barcode.TextDisplayLocation = TextLocation.None;
-            //Printing barcode on to the Pdf.
-            barcode.Draw(currentPage, new PointF(barcodeStartPoint, barcodeEndPoint + 18));
-
-
-            //Initializes a new instance of the PdfPen class with color and width of the pen
-            var pen = new PdfPen(Color.Gray, 1);
-            //Gets or sets the dash style of the pen. 
-            pen.DashStyle = PdfDashStyle.Dash;
-            //Gets or sets the dash offset of the pen. 
-            pen.DashOffset = 0.5f;
-            //Draw the DashLine.
-            currentPage.Graphics.DrawLine(pen, 500, 0, 500, currentPage.GetClientSize().Height);
+            //BottomRectangle:
+            RectangleF bottomRectangle = new RectangleF(0, 214, 568, 14);
+            //Draw the rectangle on PDF document.
+            currentPage.Graphics.DrawRectangle(new PdfSolidBrush(Color.FromArgb(1, 0, 87, 255)), bottomRectangle);
 
 
             //Right side:
-            //Create font.
-            PdfFont rightTitleFont = new PdfTrueTypeFont(headerfontStream, 15);
             //Draw the BoardingPass text string.
-            currentPage.Graphics.DrawString("BOARDING PASS", rightTitleFont, PdfBrushes.White, new PointF(500 + 30, 8));
+            currentPage.Graphics.DrawString("BOARDING PASS", contentFont, PdfBrushes.White, new PointF(420 + 16, 12));
 
 
             //Initializes a new instance of the PdfTextElement class with the PassengerName text and PdfFont
             var rightPassengerName = new PdfTextElement("Passenger Name", titleFont);
             //Draws the element on the page with the specified page and PointF structure
-            result = rightPassengerName.Draw(currentPage, new Point(500 + 20, (int)y));
+            result = rightPassengerName.Draw(currentPage, new PointF(420 + 16, y+10));
             //Initializes a new instance of the PdfTextElement class with the passenger name text and PdfFont & draw
-            result = new PdfTextElement($" {model.PassengerName}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
+            result = new PdfTextElement($"{model.PassengerName}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom));
 
 
             //Create a text element with the from text and font.
             var rightFrom = new PdfTextElement("From", titleFont);
             //Draws the element on the page with the specified page and PointF structure
-            result = rightFrom.Draw(currentPage, new Point((int)result.Bounds.X, (int) result.Bounds.Bottom+15));
+            result = rightFrom.Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 4));
             //Initializes a new instance of the PdfTextElement class with the from text and PdfFont & draw
-            result = new PdfTextElement($" {model.From}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom +2));
+            result = new PdfTextElement($"{model.From}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom));
 
 
             //Create a text element with the To text and font.
             var rightTo = new PdfTextElement("To", titleFont);
             //Draws the element on the page with the specified page and PointF structure
-            result = rightTo.Draw(currentPage, new Point((int)result.Bounds.X, (int)result.Bounds.Bottom + 15));
+            result = rightTo.Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 4));
             //Initializes a new instance of the PdfTextElement class with the To text and PdfFont & draw
-            result = new PdfTextElement($"{model.To}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
-            float dateRight = result.Bounds.Right+2;
-
-
-            //Create a text element with the Flight text and font.
-            var rightFlight = new PdfTextElement("Flight", titleFont);
-            //Draws the element on the page with the specified page and PointF structure
-            result = rightFlight.Draw(currentPage, new Point((int)result.Bounds.X, (int)result.Bounds.Bottom + 10));
-            float flightBottom = result.Bounds.Y;
-            //Initializes a new instance of the PdfTextElement class with the Flight text and PdfFont & draw
-            result = new PdfTextElement($"{model.Flight}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
-
-
-            //Create a text element with the date text and font.
-            var rightDate = new PdfTextElement("Date", titleFont);
-            //Draws the element on the page with the specified page and PointF structure
-            PdfLayoutResult rightDateResult = rightDate.Draw(currentPage, new Point((int)dateRight, (int)flightBottom));
-            float dateLeft = rightDateResult.Bounds.Left ;
-            //Initializes a new instance of the PdfTextElement class with the date text and PdfFont & draw
-            rightDateResult = new PdfTextElement($"{model.Date}", contentFont).Draw(currentPage, new PointF(rightDateResult.Bounds.X, rightDateResult.Bounds.Bottom + 2));
-
+            result = new PdfTextElement($"{model.To}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom));
 
             //Create a text element with the gate text and font.
             var rightGate = new PdfTextElement("Gate", titleFont);
             //Draws the element on the page with the specified page and PointF structure
-            result = rightGate.Draw(currentPage, new Point((int)result.Bounds.X, (int)result.Bounds.Bottom + 10));
-            float gateRight = result.Bounds.Right+20;
-            float gateY = result.Bounds.Y;
+            result = rightGate.Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 6));
+            float gateRight = result.Bounds.Right + 17;
+            float seatY = result.Bounds.Y;
             //Initializes a new instance of the PdfTextElement class with the gate text and PdfFont & draw
-            result = new PdfTextElement($"{model.Gate}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
+            result = new PdfTextElement($"{model.Gate}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom));
 
 
             //Create a text element with the seat text and font.
             var rightSeat = new PdfTextElement("Seat", titleFont);
             //Draws the element on the page with the specified page and PointF structure
-            PdfLayoutResult seatResult = rightSeat.Draw(currentPage, new Point((int)gateRight,(int) gateY));
+            PdfLayoutResult seatResult = rightSeat.Draw(currentPage, new PointF(gateRight, seatY));
+            float seatRightX = seatResult.Bounds.Right + 17;
             //Initializes a new instance of the PdfTextElement class with the seat text and PdfFont & draw
-            seatResult = new PdfTextElement($"{model.Seat}", contentFont).Draw(currentPage, new PointF(seatResult.Bounds.X, seatResult.Bounds.Bottom + 2));
+            seatResult = new PdfTextElement($"{model.Seat}", contentFont).Draw(currentPage, new PointF(seatResult.Bounds.X, seatResult.Bounds.Bottom));
+
+            //Create a text element with the Flight text and font.
+            var rightFlight = new PdfTextElement("Flight", titleFont);
+            //Draws the element on the page with the specified page and PointF structure
+            PdfLayoutResult rightflightResult = rightFlight.Draw(currentPage, new PointF(seatRightX, seatY));
+            //Initializes a new instance of the PdfTextElement class with the Flight text and PdfFont & draw
+            rightflightResult = new PdfTextElement($"{model.Flight}", contentFont).Draw(currentPage, new PointF(rightflightResult.Bounds.X, rightflightResult.Bounds.Bottom));
+            
+
+            //Create a text element with the date text and font.
+            var rightDate = new PdfTextElement("Date", titleFont);
+            //Draws the element on the page with the specified page and PointF structure
+            PdfLayoutResult rightDateResult = rightDate.Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 6));
+            float flightBottom = rightDateResult.Bounds.Y;
+            //Initializes a new instance of the PdfTextElement class with the date text and PdfFont & draw
+            rightDateResult = new PdfTextElement($"{model.Date}", contentFont).Draw(currentPage, new PointF(rightDateResult.Bounds.X, rightDateResult.Bounds.Bottom));
 
 
             //Create a text element with the time text and font.
             var rightTime = new PdfTextElement("Time", titleFont);
             //Draws the element on the page with the specified page and PointF structure
-            PdfLayoutResult rightTimeResult = rightTime.Draw(currentPage, new Point((int)dateLeft, (int)gateY));
+            PdfLayoutResult rightTimeResult = rightTime.Draw(currentPage, new PointF(seatRightX, flightBottom));
             //Initializes a new instance of the PdfTextElement class with the time text and PdfFont & draw
-            rightTimeResult = new PdfTextElement($"{model.Time}", contentFont).Draw(currentPage, new PointF(rightTimeResult.Bounds.X , rightTimeResult.Bounds.Bottom + 2));
+            rightTimeResult = new PdfTextElement($"{model.Time}", contentFont).Draw(currentPage, new PointF(rightTimeResult.Bounds.X, rightTimeResult.Bounds.Bottom ));
 
             return result;
             
         }
 ```
-5.4. Draw the rotated (Your Airlines) text 
 
-```c#
-            //Set the bounds for rectangle.
-            RectangleF rect = new RectangleF(0, 0, 64, 288);
-            //Draw the rectangle on PDF document.
-            currentPage.Graphics.DrawRectangle(PdfBrushes.Red, rect);
-            float x = rect.Width + 25;
-   
-            //Create font.
-            PdfFont leftFont = new PdfTrueTypeFont(headerfontStream, 15);
-            //Set the format for string.
-            PdfStringFormat format = new PdfStringFormat();
-            //Set the alignment.
-            format.Alignment = PdfTextAlignment.Center;
-            //Set the line alignment.
-            format.LineAlignment = PdfVerticalAlignment.Middle;
-            //Translate the coordinate system’s to where you want draw the text position.
-            currentPage.Graphics.TranslateTransform(64/2, 288/2);
-            //Rotate the coordinate system’s.
-            currentPage.Graphics.RotateTransform(-90);
-            //Draw the Your Airlines string at the origin with brush and font.
-            currentPage.Graphics.DrawString("Your Airlines", leftFont, PdfBrushes.White, new Point(0, 0), format);
-
-```
 
 #### 6. The generated **PDF file** must look as shown below:
 
