@@ -208,11 +208,9 @@ namespace Invoice
             //Adds the number of specified count.
             grid.Columns.Add(4);
             //sets the width of the Syncfusion.Pdf.Grid.PdfGridColumn.
-            //grid.Columns[0].Width = 70;
             grid.Columns[1].Width = 70;
             grid.Columns[2].Width = 70;
             grid.Columns[3].Width = 70;
-            //grid.Columns[4].Width = 52.91f;
             // Add rows to the header at run time.
             grid.Headers.Add(1);
 
@@ -238,6 +236,7 @@ namespace Invoice
             header.Cells[3].Value = "Amount($)";
             //set the string format
             header.Cells[3].StringFormat = stringFormat;
+
             PdfGridCellStyle cellStyle = new PdfGridCellStyle();
             cellStyle.Borders.Right = PdfPens.Transparent;
             cellStyle.Borders.Left = PdfPens.Transparent;
@@ -246,20 +245,13 @@ namespace Invoice
 
             for (int j = 0; j < grid.Headers[0].Cells.Count; j++)
             {
-                //Apply style
+                //Apply the style to header
                 grid.Headers[0].Cells[j].Style = cellStyle;
-               grid.Headers[0].Cells[j].Style.TextBrush = new PdfSolidBrush(Color.FromArgb(1, 226, 242, 255));
+                //Apply the trasnparent color to hide the background 
+                grid.Headers[0].Cells[j].Style.TextBrush = PdfBrushes.White;
             }
-
-            PdfGridCellStyle rowCellStyle = new PdfGridCellStyle();
-            rowCellStyle.Borders.Right = PdfPens.Transparent;
-            rowCellStyle.Borders.Left = PdfPens.Transparent;
-            rowCellStyle.Borders.Top = PdfPens.Transparent;
-            rowCellStyle.Borders.Bottom = PdfPens.Transparent;
-
-            //Initializes a new instance of the PdfGridCellStyle class.
-            //PdfGridCellStyle cellStyle = new PdfGridCellStyle();
-            //cellStyle.Borders.All= new PdfPen(Color.FromArgb(255, 236, 231, 231));          
+          
+            //Initializes a new instance of the PdfGridCellStyle class.                  
             for (int j = 0; j < grid.Headers[0].Cells.Count; j++)
             {
                 //sets the cell style
@@ -267,7 +259,7 @@ namespace Invoice
                 //Gets the cells from the selected row.
                 PdfGridCell cell = header.Cells[j];
                 //sets the background brush. 
-                cell.Style.BackgroundBrush = new PdfSolidBrush(Color.FromArgb(1, 53, 67, 128));
+                cell.Style.BackgroundBrush = new PdfSolidBrush(Color.FromArgb(1, 53, 67, 168));
             }
 
             decimal sum = 0;
@@ -276,9 +268,6 @@ namespace Invoice
             {
                 //Add new row to the grid.
                 PdfGridRow row = grid.Rows.Add();
-                //sets the value of the cell.
-
-
                 //sets the value of the cell.
                 row.Cells[0].Value = item.Name[index];
                 //sets the vertical text alignment.
@@ -297,8 +286,6 @@ namespace Invoice
                 row.Cells[2].StringFormat = stringFormat;
                 //sets the vertical text alignment.
                 row.Cells[2].StringFormat.LineAlignment = PdfVerticalAlignment.Middle;
-
-
 
                 //calculate the amount 
                 decimal amount = item.Rate * item.Qty;
@@ -334,7 +321,7 @@ namespace Invoice
             SizeF fontSize = contentFont.MeasureString(element.Text);
             float y = result.Bounds.Bottom;
             //Draws the element on the page with the specified page and RectangleF structure
-            result = element.Draw(currentPage, new RectangleF(result.Bounds.Width - (contentFont.Size * 9) - 10, result.Bounds.Bottom + 22, resultWidth, result.Bounds.Height));
+            result = element.Draw(currentPage, new RectangleF(result.Bounds.Width - (contentFont.Size * 9) - 30, result.Bounds.Bottom + 22, resultWidth, result.Bounds.Height));
             float totalWidth = result.Bounds.X;
 
             //get the sub total amount
@@ -375,7 +362,8 @@ namespace Invoice
                 document.Pages.Add();
             }
 
-            currentPage.Graphics.DrawRectangle(new PdfSolidBrush(Color.FromArgb(255, 239, 242, 255)), new RectangleF(totalWidth - size.Width + fontSize.Width, result.Bounds.Bottom + 10,width+47, 9 + 18));
+            //draw the rectangle
+            currentPage.Graphics.DrawRectangle(new PdfSolidBrush(Color.FromArgb(255, 239, 242, 255)), new RectangleF(totalWidth - size.Width + fontSize.Width, result.Bounds.Bottom + 10,width+63, 9 + 18));
 
             contentFont = new PdfTrueTypeFont(standardFontStream, 10, PdfFontStyle.Bold);
             //Initializes a new instance of the PdfTextElement class with the text and PdfFont
@@ -398,7 +386,6 @@ namespace Invoice
             result = element.Draw(currentPage, new RectangleF(30, y, result.Bounds.Width, textSize.Height));
 
             //draw the line
-            // currentPage.Graphics.DrawRectangle(new PdfSolidBrush(Color.FromArgb(255, 239, 242, 255)), new RectangleF(totalWidth - size.Width + fontSize.Width, y-8, 140,textSize.Height+18));//new PointF(width, result.Bounds.Bottom + 9), new PointF(result.Bounds.Right, result.Bounds.Bottom + 10));
             y = result.Bounds.Bottom + 45;
             if (y > clientSize.Height)
             {

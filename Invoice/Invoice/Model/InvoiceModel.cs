@@ -65,7 +65,7 @@ namespace Invoice.Model
         }
 
         public List<string> name = GetItemValue();
-        public static List<string> item = new List<string>(20);
+        public static List<string> item = new List<string>(100);
         //Get or set the item name
         public List<string> Name
         {
