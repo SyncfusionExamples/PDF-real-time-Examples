@@ -15,4 +15,4 @@
 
 ### Output file
 The example creates the file **LeaseAgreement.pdf** in the output **bin/(debug|release)/net6.0** folder.
-(https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE-3951/Result/LeaseAgreement.pdf).
+[Click to view output document](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE-3951/Result/LeaseAgreement.pdf).
