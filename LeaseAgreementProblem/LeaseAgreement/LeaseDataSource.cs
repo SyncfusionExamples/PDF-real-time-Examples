@@ -8,22 +8,13 @@ using System.Threading.Tasks;
 
 namespace LeaseAgreement
 {
-    /// <summary>
-    /// Lease data source class
-    /// </summary>
-    public class LeaseDataSource
+    internal class LeaseDataSource
     {
-        /// <summary>
-        /// Get month lease details
-        /// </summary>
-        /// <returns>lease model details</returns>
         public static LeaseModel GetMonthLeaseDetails()
         {
             return new LeaseModel
             {
                 Title = "Month to Month Lease Agreement",
-                CompanyName = "ABZ Company",
-                FormDate = DateTime.Now.ToString("dddd, dd MMMM yyyy"),
                 Parties = GeneratePartiesDetails(),
                 LeasePeriod = GenerateLeasePeriod(),
                 OtherOccupants1 = GenerateOtherOccupants1(),
@@ -33,10 +24,6 @@ namespace LeaseAgreement
                 TermsofLease = GenerateTermsofLeaseDetails(),
             };
         }
-        /// <summary>
-        /// Generate the parties details
-        /// </summary>
-        /// <returns>Parties details</returns>
         private static Parties GeneratePartiesDetails()
         {
             return new Parties
@@ -49,67 +36,49 @@ namespace LeaseAgreement
                 PropertyDetails = GeneratePropertyDetails(),
             };
         }
-        /// <summary>
-        /// Generate the property details
-        /// </summary>
-        /// <returns>Property details</returns>
         private static PropertyDetails GeneratePropertyDetails()
         {
             return new PropertyDetails
             {
-                PlatNo = "64432 Clarendon Alley,",
+                PlatNo = "54432 Clarendon alley",
                 Street = "9929 Almo PaWashingto,",
                 City = "District o,",
                 PinCode = 20062,
             };
         }
-        /// <summary>
-        /// Generate the lease period details
-        /// </summary>
-        /// <returns>lease period details</returns>
+
         private static LeasePeriod GenerateLeasePeriod()
         {
             return new LeasePeriod
             {
                 Title = "Lease Period",
-                LeaseFrom = DateTime.Now.ToString("dddd, dd MMMM yyyy"),
-                LeaseUntil = DateTime.Now.ToString("dddd, dd MMMM yyyy"),
+                LeaseFrom = DateTime.Now.ToString("dddd, dd MMMM 2000"),
+                LeaseUntil = DateTime.Now.ToString("dddd, dd MMMM 2016"),
                 MonthlyLeaseAmount = 1200.00f,
                 SecurityDebitAmount = 890.00f,
             };
         }
-        /// <summary>
-        /// Generate the other occupants details
-        /// </summary>
-        /// <returns>Other occupants details</returns>
+
         private static OtherOccupants GenerateOtherOccupants1()
         {
             return new OtherOccupants
             {
-                Title = "Names of Other Occupants 1",
+                Title = "Names of Other Occupant 1",
                 Name = "Dannel Kreuzer",
-                DateofBirth =DateTime.UtcNow.ToString("dddd,2000,08,02"),
+                DateofBirth =DateTime.Now,
                 RelationShip = "Intege",
             };
         }
-        /// <summary>
-        /// Generate the other occupants details
-        /// </summary>
-        /// <returns>Other occupants details</returns>
         private static OtherOccupants GenerateOtherOccupants2()
         {
             return new OtherOccupants
             {
-                Title = "Names of Other Occupants 2",
+                Title = "Names of Other Occupant 2",
                 Name = "Raja",
-                DateofBirth = DateTime.UtcNow.ToString("dddd,1998,08,02"),
+                DateofBirth = DateTime.Now,
                 RelationShip = "Maecen",
             };
         }
-        /// <summary>
-        /// Generate the Agreement signature
-        /// </summary>
-        /// <returns>agreement signature</returns>
         private static AgreementSignature GenerateAgreementSignature1()
         {
             return new AgreementSignature
@@ -118,10 +87,6 @@ namespace LeaseAgreement
             };
         }
 
-        /// <summary>
-        /// Generate the Agreement signature
-        /// </summary>
-        /// <returns>agreement signature</returns>
         private static AgreementSignature GenerateAgreementSignature2()
         {
             return new AgreementSignature
@@ -129,10 +94,6 @@ namespace LeaseAgreement
                 Signature = " ",
             };
         }
-        /// <summary>
-        /// Generate the terms of lease details
-        /// </summary>
-        /// <returns>Terma of lease details</returns>
         private static TermsofLease GenerateTermsofLeaseDetails()
         {
             string json = File.ReadAllText(@"..\..\..\Data\StringofData.json");
