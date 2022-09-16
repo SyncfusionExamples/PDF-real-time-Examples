@@ -28,6 +28,8 @@ namespace Invoice.Model
 
         //Get or set the order items
         public List<OrderItem> Items { get; set; }
+
+       
         
 
     }
@@ -62,8 +64,31 @@ namespace Invoice.Model
             set { tax1 = value; }
         }
 
+        public List<string> name = GetItemValue();
+        public static List<string> item = new List<string>(20);
         //Get or set the item name
-        public List<string>Name { get; set; }
+        public List<string> Name
+        {
+            get
+            {
+                return name;
+            }
+            set { name = value; }
+        }
+        public static List<string> GetItemValue()
+        {
+            item.Add("API Development");
+            item.Add("Desktop Software Development");
+            item.Add("Web Design");
+            item.Add("Marketing Design");
+            item.Add("Search Engines Optimization");
+            item.Add("Print Ad - Basic - Color 1.00");
+            item.Add("Site admin development");
+            item.Add("Web Design Packages(Template) - Basic");
+            item.Add("Redesign a service site");
+            item.Add("Print Ad - Basic - Color 1.00");
+            return item;
+        }
 
     }
 

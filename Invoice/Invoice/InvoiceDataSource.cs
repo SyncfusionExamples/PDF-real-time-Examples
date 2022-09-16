@@ -12,41 +12,28 @@ namespace Invoice
     public static class InvoiceDocumentDataSource
     {
         private static Random Random = new Random();
-        public static List<string> item = new List<string>(20);
+        
 
         /// <summary>
         /// Add the item name
         /// </summary>
-        public static List<string>  GetItemValue()
-        {
-            item.Add("Brochure Design");
-            item.Add("Web Design Packages(Template) - Basic");
-            item.Add("Print Ad - Basic - Color 1.00");
-            item.Add("Brochure Design");
-            item.Add("Web Design Packages(Template) - Basic");
-            item.Add("Print Ad - Basic - Color 1.00");
-            item.Add("Brochure Design");
-            item.Add("Web Design Packages(Template) - Basic");
-            item.Add("Print Ad - Basic - Color 1.00");
-            item.Add("Print Ad - Basic - Color 1.00");
-            return item;
-        }
+        
         /// <summary>
         /// Get the Invoice details
         /// </summary>
         public static InvoiceModel GetInvoiceDetails()
         {
             var items = Enumerable
-                .Range(1, 5)
+                .Range(1, 8)
                 .Select(i => GenerateRandomOrderItem())
                 .ToList();
 
             return new InvoiceModel
             {
-                InvoiceNumber = "INV-17",//Random.Next(1_000, 10_000),
-                RefNumber = 321014,//Random.Next(1_000, 10_000),
+                InvoiceNumber = "#23698720",
+                RefNumber = 321014,
                 IssueDate = DateOnly.FromDateTime(new DateTime(2016,02,24)),
-                DueDate = DateOnly.FromDateTime(new DateTime(2016, 02, 24) + TimeSpan.FromDays(14)),
+                DueDate = DateOnly.FromDateTime(new DateTime(2016, 02, 24)),
 
                 SellerAddress = GenerateSellerAddress(),
                 CustomerAddress = GenerateCustomerAddress(),
@@ -62,7 +49,6 @@ namespace Invoice
 
             return new OrderItem
             {
-                Name=GetItemValue(),    
                 Rate = (decimal)Math.Round(Random.NextDouble() * 100, 2),
                 Qty = Random.Next(1, 50),
                 Discount = Random.Next(1, 100),           
@@ -92,12 +78,12 @@ namespace Invoice
         {
             return new Address
             {
-                Name = "Jeff J.Ritchie",
-                Street = "4799 Highland View Drive",
-                City = "Sacramento",
-                State = "illumna kosari",
-                Email = "sales@tempora.com",
-                Phone = "CA 95815"
+                Name = "John Smith",
+                Street = "398 W Broadway, New York,",
+                City = "North Dakota, 10012",
+                State = "",
+                Email = "",
+                Phone = "(646) 392-7868"
             };
         }
     }
