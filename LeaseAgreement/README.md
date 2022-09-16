@@ -13,4 +13,4 @@
 
 
 ### Final generated PDF document
-[Click to view output document](https://github.com/SyncfusionExamples/PDF-real-time-Examples/tree/EJDOTNETCORE-3951/LeaseAgreement/LeaseAgreement/Result/LeaseAgreement.pdf).
+[Click to view output document](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE-3951/LeaseAgreement/LeaseAgreement/Result/LeaseAgreement.pdf).
