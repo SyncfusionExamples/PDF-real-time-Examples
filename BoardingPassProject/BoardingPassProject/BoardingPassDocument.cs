@@ -102,7 +102,7 @@ namespace BoardingPassProject
             //Draws the element on the page with the specified page and PointF structure
             var result = passengerNameText.Draw(currentPage, new PointF(x,y+14));
             //Initializes a new instance of the PdfTextElement class with the PassengerName text and PdfFont & draw
-            result = new PdfTextElement($" {model.PassengerName}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
+            result = new PdfTextElement($"{model.PassengerName}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
             
 
             //Create a text element with the From text and font.
@@ -110,7 +110,7 @@ namespace BoardingPassProject
             //Draws the element on the page with the specified page and PointF structure
             result = fromText.Draw(currentPage, new PointF(result.Bounds.X,result.Bounds.Bottom+5));
             //Initializes a new instance of the PdfTextElement class with the from text and PdfFont and & draw
-            result = new PdfTextElement($" {model.From}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
+            result = new PdfTextElement($"{model.From}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
 
 
             //Create a text element with the To text and font.
@@ -168,7 +168,6 @@ namespace BoardingPassProject
             PdfLayoutResult timeResult = time.Draw(currentPage, new PointF(timeR, gateY));
             //Initializes a new instance of the PdfTextElement class with the time text and PdfFont & draw
             timeResult = new PdfTextElement($"{model.Time}", contentFont).Draw(currentPage, new PointF(timeResult.Bounds.X, timeResult.Bounds.Bottom));
-            //float barcodeEndPoint = timeResult.Bounds.Bottom;
 
             //BottomRectangle:
             RectangleF bottomRectangle = new RectangleF(0, 214, 568, 14);
@@ -186,7 +185,7 @@ namespace BoardingPassProject
             //Draws the element on the page with the specified page and PointF structure
             result = rightPassengerName.Draw(currentPage, new PointF(420 + 16, y+10));
             //Initializes a new instance of the PdfTextElement class with the passenger name text and PdfFont & draw
-            result = new PdfTextElement($" {model.PassengerName}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom));
+            result = new PdfTextElement($"{model.PassengerName}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom));
 
 
             //Create a text element with the from text and font.
@@ -194,7 +193,7 @@ namespace BoardingPassProject
             //Draws the element on the page with the specified page and PointF structure
             result = rightFrom.Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 4));
             //Initializes a new instance of the PdfTextElement class with the from text and PdfFont & draw
-            result = new PdfTextElement($" {model.From}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom));
+            result = new PdfTextElement($"{model.From}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom));
 
 
             //Create a text element with the To text and font.
