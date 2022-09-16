@@ -15,10 +15,11 @@ The BoardingPass project is an example of the boarding pass generation. The exam
 # Description
 
 ### Image
-Image of the logo of the airplane is located in the **Assets/Image/images.png**.
+Image of the logo of the airplane is located in the **Assets/Image/logo.png**.
 
 ### Output file
-The example creates the file **BoardingPass.pdf** in the output **bin/(debug|release)/net6.0** folder.
-https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE3950/results/BoardingPass.pdf
-Refer to the following Output screenshot
+The example creates the file **BoardingPass.pdf** in the output **bin/(debug|release)/net6.0** folder. The Output document[here](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE3950/results/BoardingPass.pdf)
+
+Refer to the following Output screenshot 
+
 ![Output image] (https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE3950/results/OutputImage.PNG)
