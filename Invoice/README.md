@@ -15,3 +15,5 @@ The Invoice project is an example of the invoice generation.An invoice is a comm
 
 ### Output file
 The example creates the file **Invoice.pdf** in the output **bin/(debug|release)/net6.0** folder.
+
+![invoice](https://github.com/SyncfusionExamples/PDF-real-time-Examples/tree/invoice/results/invoice.JPG)
