@@ -92,10 +92,14 @@ public class BoardingPassDocument
 
 ```c#
             //Set the bounds for rectangle.
-            RectangleF rectangle = new RectangleF(0,0,568,36);
+            RectangleF backRectangle = new RectangleF(0, 0, 568, 228);
             //Draw the rectangle on PDF document.
-            currentPage.Graphics.DrawRectangle(new PdfSolidBrush(Color.FromArgb(1, 0, 87, 255)), rectangle);
-            float y = rectangle.Height;
+            currentPage.Graphics.DrawRectangle(new PdfSolidBrush(Color.FromArgb(1, 248, 252, 255)), backRectangle);
+            //Set the bounds for uppeRectangle.
+            RectangleF upperRectangle = new RectangleF(0,0,568,36);
+            //Draw the rectangle on PDF document.
+            currentPage.Graphics.DrawRectangle(new PdfSolidBrush(Color.FromArgb(1, 0, 87, 255)), upperRectangle);
+            float y = upperRectangle.Height;
             //Create font.
             PdfFont titleFont = new PdfTrueTypeFont(headerFontStream, 10, PdfFontStyle.Bold);
             //Create a BOARDING PASS text element with the text and font.
@@ -120,18 +124,8 @@ public class BoardingPassDocument
             PdfLayoutResult airResult = airWayText.Draw(currentPage, new RectangleF(airTextStart, 13, 43, 14));
 
 ```
-5.3. Draw the dashed line 
-```c#
-            //Initializes a new instance of the PdfPen class with color and width of the pen
-            var pen = new PdfPen(Color.FromArgb(1,197,197, 197), 1);
-            //Gets or sets the dash style of the pen. 
-            pen.DashStyle = PdfDashStyle.Dash;
-            //Gets or sets the dash offset of the pen. 
-            pen.DashOffset = 1f;
-            //Draw the DashLine.
-            currentPage.Graphics.DrawLine(pen, 420, 0, 420, currentPage.GetClientSize().Height);
-```
-5.4. Draw the barcode 
+
+5.3. Draw the barcode 
 ```c#
             //Drawing Code39 barcode.
             PdfQRBarcode barcode = new PdfQRBarcode();
@@ -142,7 +136,7 @@ public class BoardingPassDocument
             //Printing barcode on to the Pdf.
             barcode.Draw(currentPage, new PointF(barcodeStartPoint, y+14));
 ```
-5.5. Create FormDetails() method 
+5.4. Create FormDetails() method 
 
 The Passenger details in left and right side of the ticket is added in this method
 ```c#
@@ -177,7 +171,7 @@ The Passenger details in left and right side of the ticket is added in this meth
             result = new PdfTextElement($"{model.To}", contentFont).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom + 2));
            
             float gateRectY = result.Bounds.Bottom + 20;
-            RectangleF rectangle = new RectangleF(0, gateRectY, 419, 50);
+            RectangleF rectangle = new RectangleF(0, gateRectY, 419.5f, 50);
             //Draw the rectangle on PDF document.
             currentPage.Graphics.DrawRectangle(new PdfSolidBrush(Color.FromArgb(1,226, 242, 255)), rectangle);
             float gateY = rectangle.Y+10;
@@ -230,7 +224,16 @@ The Passenger details in left and right side of the ticket is added in this meth
             //Draw the rectangle on PDF document.
             currentPage.Graphics.DrawRectangle(new PdfSolidBrush(Color.FromArgb(1, 0, 87, 255)), bottomRectangle);
 
-
+            //Initializes a new instance of the PdfPen class with color and width of the pen
+            var pen = new PdfPen(Color.FromArgb(1, 197, 197, 197), 1);
+            //Gets or sets the dash style of the pen. 
+            pen.DashStyle = PdfDashStyle.Dash;
+            //Gets or sets the dash offset of the pen. 
+            pen.DashOffset = 1f;
+            //Draw the DashLine.
+            currentPage.Graphics.DrawLine(pen, 420, 0, 420, currentPage.GetClientSize().Height);
+			
+			
             //Right side:
             //Draw the BoardingPass text string.
             currentPage.Graphics.DrawString("BOARDING PASS", contentFont, PdfBrushes.White, new PointF(420 + 16, 12));
@@ -309,7 +312,7 @@ The Passenger details in left and right side of the ticket is added in this meth
 
 #### 6. The generated **PDF file** must look as shown below:
 
-The resulting BoardingPass.pdf document can be accessed [here](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE3950/results/BoardingPass.pdf).
+The resulting BoardingPass.pdf document can be accessed [here](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE3950/BoardingPassProject/results/BoardingPass.pdf).
 
 
 
