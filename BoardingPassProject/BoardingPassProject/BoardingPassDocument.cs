@@ -20,12 +20,19 @@ namespace BoardingPassProject
         BoardingPassModel model;
         PdfPage currentPage;
         FileStream headerFontStream;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BoardingPassDocument"/> class.
+        /// </summary>
+        /// <param name="BoardingPassModel">The BoardingPass Model details.</param>
         public BoardingPassDocument(BoardingPassModel model)
         {
             this.model = model;
             headerFontStream = new FileStream(@"../../../Assets/Fonts/OpenSans-Regular.ttf", FileMode.Open, FileAccess.Read);
         }
-
+        /// <summary>
+        /// Generate the PDF document
+        /// </summary>
+        /// <param name="Stream">The file stream.</param>
         public void GeneratePdf(Stream stream)
         {
             //Create a new PDF document.
@@ -86,6 +93,12 @@ namespace BoardingPassProject
             document.Close(true);
             
         }
+        /// <summary>
+        /// Create the BoardingPass form details
+        /// </summary>
+        /// <param name="x">The rectangle bounds.</param>
+        /// <param name="y">The rectangle bounds.</param>
+        /// <returns>Pdf Layout Result</returns>
         public PdfLayoutResult FormDetails(float x, float y)
         {
             //Create font.
