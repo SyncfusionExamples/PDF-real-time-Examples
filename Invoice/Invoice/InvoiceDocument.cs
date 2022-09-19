@@ -40,10 +40,13 @@ namespace Invoice
             clientSize = currentPage.GetClientSize();
             PdfLayoutResult result;
 
+            //Compose the header details of the invoice
             result = ComposeHeader();
 
+            //Compose the address details
             result = ComposeAddress(result.Bounds);
 
+            //Compose the items details in the table format
             result = ComposeTable(result.Bounds);
 
             document.Save(stream);
@@ -57,7 +60,7 @@ namespace Invoice
         }
 
         /// <summary>
-        /// Compose the header details
+        /// Compose the header details of the invoice
         /// </summary>
         /// <returns>Pdf Layout Result</returns>
         public PdfLayoutResult ComposeHeader()
@@ -206,7 +209,7 @@ namespace Invoice
         }
 
         /// <summary>
-        /// Compose the table details
+        /// Compose the items details in the table format
         /// </summary>
         /// <returns>Pdf Layout Result</returns>
         public PdfLayoutResult ComposeTable(RectangleF prevBounds)
