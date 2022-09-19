@@ -21,4 +21,4 @@ Image of the logo of the airplane is located in the **Assets/Image/logo.png**.
 The example creates the file **BoardingPass.pdf** in the output **bin/(debug|release)/net6.0** folder. The Output document [here](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE3950/BoardingPassProject/results/BoardingPass.pdf)
 
 Refer to the following Output screenshot 
-![Output image] (https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE3950/BoardingPassProject/results/OutputImage.PNG)
+![Output image](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE3950/BoardingPassProject/BoardingPassProject/results/OutputImage.PNG)

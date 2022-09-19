@@ -78,6 +78,7 @@ namespace BoardingPassProject
             //Draws the element on the page with the specified page and PointF structure
             PdfLayoutResult airResult = airWayText.Draw(currentPage, new RectangleF(airTextStart, 13, 43, 14));
 
+            //Create the BoardingPass form details.
             PdfLayoutResult result = FormDetails(30, y);
 
             //Drawing Code39 barcode.
@@ -96,8 +97,8 @@ namespace BoardingPassProject
         /// <summary>
         /// Create the BoardingPass form details
         /// </summary>
-        /// <param name="x">The rectangle bounds.</param>
-        /// <param name="y">The rectangle bounds.</param>
+        /// <param name="x">x-coordinate of the point.</param>
+        /// <param name="y">y-coordinate of the point.</param>
         /// <returns>Pdf Layout Result</returns>
         public PdfLayoutResult FormDetails(float x, float y)
         {
@@ -106,7 +107,7 @@ namespace BoardingPassProject
             PdfFont contentFont = new PdfTrueTypeFont(headerFontStream, 10, PdfFontStyle.Bold);
            
             //Left side:
-            //Create a text element with the Passenger Name text and font.
+            //Create a text element with the PassengerName text and font.
             var passengerNameText = new PdfTextElement("Passenger Name", titleFont);
             //Draws the element on the page with the specified page and PointF structure
             var result = passengerNameText.Draw(currentPage, new PointF(x,y+14));
