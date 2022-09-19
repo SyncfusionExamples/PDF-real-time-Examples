@@ -19,10 +19,11 @@ namespace BoardingPassProject
     {
         BoardingPassModel model;
         PdfPage currentPage;
-        FileStream headerFontStream = new FileStream(@"../../../Assets/Fonts/OpenSans-Regular.ttf", FileMode.Open, FileAccess.Read);
+        FileStream headerFontStream;
         public BoardingPassDocument(BoardingPassModel model)
         {
             this.model = model;
+            headerFontStream = new FileStream(@"../../../Assets/Fonts/OpenSans-Regular.ttf", FileMode.Open, FileAccess.Read);
         }
 
         public void GeneratePdf(Stream stream)
