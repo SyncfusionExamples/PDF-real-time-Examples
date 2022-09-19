@@ -18,4 +18,4 @@ The example creates the file **Invoice.pdf** in the output **bin/(debug|release)
 
 # Refer to the following Output screenshot:
 
-![Output image](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/invoice/Invoice/Invoice/Result/invoice.jpg)
+![Output image](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/Invoice/Invoice/Result/invoice.jpg)
