@@ -36,7 +36,7 @@ namespace Invoice.Model
 
     public class OrderItem
     {
-        decimal tax1 = 4.7M, tax2 = 7.0m;
+        decimal tax1 = 12.5M;
 
         //Get or set the item rate
         public decimal Rate { get; set; }
@@ -56,14 +56,7 @@ namespace Invoice.Model
             get { return tax1; }
             set { tax1 = value; }
         }
-
-        //Get or set the item sampletax2
-        public decimal SampleTax2
-        {
-            get { return tax2; }
-            set { tax1 = value; }
-        }
-
+  
         public List<string> name = GetItemValue();
         public static List<string> item = new List<string>(100);
         //Get or set the item name
