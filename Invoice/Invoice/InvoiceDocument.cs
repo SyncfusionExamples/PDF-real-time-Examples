@@ -16,8 +16,8 @@ namespace Invoice
         InvoiceModel model;
         SizeF clientSize;
         //Initializes a new instance of the Syncfusion.Pdf.Graphics.PdfTrueTypeFont class.
-        private FileStream standardFontStream = new FileStream("../../../Assets/OpenSans-Regular.ttf", FileMode.Open, FileAccess.Read);
-        PdfFont contentFont = null;
+        FileStream standardFontStream;
+        PdfFont contentFont;
         PdfPage currentPage;
         PdfDocument document;
         float bottomValue = 0;
@@ -26,7 +26,8 @@ namespace Invoice
         public InvoiceDocument(InvoiceModel model)
         {
             this.model = model;
-        }
+            standardFontStream = new FileStream("../../../Assets/OpenSans-Regular.ttf", FileMode.Open, FileAccess.Read);
+    }
 
         public void GeneratePdf(Stream stream)
         {
