@@ -12,9 +12,8 @@
    To install the framework use the following link: https://dotnet.microsoft.com/download
 
 
-### Final generated PDF document
-[Click to view output document](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE-3951/LeaseAgreement/LeaseAgreement/Result/LeaseAgreement.pdf).
+# Refer to the following Output screenshot:
 
-Refer to the following Output screenshot
 ![Output image1](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE-3951/LeaseAgreement/LeaseAgreement/Result/AgreementImage1.PNG)
+
 ![Output image2](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/EJDOTNETCORE-3951/LeaseAgreement/LeaseAgreement/Result/AgreementImage2.PNG)
