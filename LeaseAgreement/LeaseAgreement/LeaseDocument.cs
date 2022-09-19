@@ -22,14 +22,14 @@ namespace LeaseAgreement
         int smallTextMargin = 10;
         int largeTextMargin = 15;
         SizeF clientSize;
-        FileStream streamRegular;
+        FileStream fontStream;
         PdfFont titleFont;
         PdfFont titleInnerFonts;
         PdfFont textTopicFonts;
         PdfFont textFont;
         PdfFont textFontTerms ;
         PdfColor color;
-        PdfBrush drawLine;
+        PdfBrush brush;
         PdfPage currentPage;
         int alignment = 50;
         float xPosition = 325.5f;
@@ -43,15 +43,15 @@ namespace LeaseAgreement
         {
             this.model = model;
             //Initializes a new instance of the Syncfusion.Pdf.Graphics.PdfTrueTypeFont class.
-            streamRegular = new FileStream(@"../../../Data/OpenSans-Regular.ttf", FileMode.Open, FileAccess.Read);
-            titleFont = new PdfTrueTypeFont(streamRegular, 20f, PdfFontStyle.Bold);
-            titleInnerFonts = new PdfTrueTypeFont(streamRegular, 12f, PdfFontStyle.Bold);
-            textTopicFonts = new PdfTrueTypeFont(streamRegular, 10f, PdfFontStyle.Bold);
-            textFont = new PdfTrueTypeFont(streamRegular, 10f, PdfFontStyle.Regular);
-            textFontTerms = new PdfTrueTypeFont(streamRegular, 8f, PdfFontStyle.Regular);
+            fontStream = new FileStream(@"../../../Data/OpenSans-Regular.ttf", FileMode.Open, FileAccess.Read);
+            titleFont = new PdfTrueTypeFont(fontStream, 20f, PdfFontStyle.Bold);
+            titleInnerFonts = new PdfTrueTypeFont(fontStream, 12f, PdfFontStyle.Bold);
+            textTopicFonts = new PdfTrueTypeFont(fontStream, 10f, PdfFontStyle.Bold);
+            textFont = new PdfTrueTypeFont(fontStream, 10f, PdfFontStyle.Regular);
+            textFontTerms = new PdfTrueTypeFont(fontStream, 8f, PdfFontStyle.Regular);
             //Initializes a new instance of the Syncfusion.Pdf.Graphics.PdfColor class.
             color = new PdfColor(217, 217, 217);
-            drawLine = new PdfSolidBrush(color);
+            brush = new PdfSolidBrush(color);
         }
         #endregion
         #region Methods
@@ -76,8 +76,8 @@ namespace LeaseAgreement
             //Added the header of the page
             PdfPageTemplateElement header = new PdfPageTemplateElement(headerBounds);
             //Load the image as stream.
-            FileStream stream1 = new FileStream(@"../../../Data/Logo.png", FileMode.Open);
-            PdfImage image = new PdfBitmap(stream1);
+            FileStream imageStream = new FileStream(@"../../../Data/Logo.png", FileMode.Open);
+            PdfImage image = new PdfBitmap(imageStream);
             PdfBrush drawTopics = new PdfSolidBrush(Color.White);
             PdfColor color = new PdfColor(53,67,168);
             PdfBrush drawRectangle = new PdfSolidBrush(color);
@@ -110,7 +110,7 @@ namespace LeaseAgreement
             //Save the documents
             document.Save(stream);
             document.Close(true);
-            stream1.Dispose();
+            imageStream.Dispose();
         }
         /// <summary>
         /// Generate the pages
@@ -135,7 +135,7 @@ namespace LeaseAgreement
             //Draws the title at the specified location and with the specified size.
             var result = new PdfTextElement(model.Parties.Title, titleInnerFonts).Draw(currentPage, new RectangleF(Padding, y,clientSize.Width,0));
             //Draws the line at the specified location and with the specified size.
-            currentPage.Graphics.DrawRectangle(drawLine, new RectangleF(Padding, result.Bounds.Bottom+8, 430, 1));
+            currentPage.Graphics.DrawRectangle(brush, new RectangleF(Padding, result.Bounds.Bottom+8, 430, 1));
             //Draws the parties details at the specified location and with the specified size.
             result = new PdfTextElement("Lessor / Landlord", textTopicFonts).Draw(currentPage, new RectangleF(Padding, result.Bounds.Bottom + 19, halfBounds.Width - alignment, halfBounds.Height));
             result = new PdfTextElement("Lessee / Tenant", textTopicFonts).Draw(currentPage, new RectangleF(xPosition, result.Bounds.Y, halfBounds.Width - alignment, halfBounds.Height));
@@ -165,7 +165,7 @@ namespace LeaseAgreement
             //Draws the title at the specified location and with the specified size.
             var result = new PdfTextElement(model.LeasePeriod.Title, titleInnerFonts).Draw(currentPage, new RectangleF(Padding, y, clientSize.Width, 0));
             //Draws the line at the specified location and with the specified size.
-            currentPage.Graphics.DrawRectangle(drawLine, new RectangleF(Padding, result.Bounds.Bottom + 8, 430, 1));
+            currentPage.Graphics.DrawRectangle(brush, new RectangleF(Padding, result.Bounds.Bottom + 8, 430, 1));
             //Draws the lease period details at the specified location and with the specified size.
             result = new PdfTextElement("Lease From", textTopicFonts).Draw(currentPage, new RectangleF(Padding, result.Bounds.Bottom + 19, halfBounds.Width - alignment, halfBounds.Height));
             result = new PdfTextElement("Lease Until", textTopicFonts).Draw(currentPage, new RectangleF(xPosition, result.Bounds.Y, halfBounds.Width - alignment, halfBounds.Height));
@@ -193,7 +193,7 @@ namespace LeaseAgreement
             //Draws the title at the specified location and with the specified size.
             var result = new PdfTextElement("Names of other occupants", titleInnerFonts).Draw(currentPage, new RectangleF(Padding, y,clientSize.Width,0));
             //Draws the line at the specified location and with the specified size.
-            currentPage.Graphics.DrawRectangle(drawLine, new RectangleF(Padding, result.Bounds.Bottom + 8, 430, 1));
+            currentPage.Graphics.DrawRectangle(brush, new RectangleF(Padding, result.Bounds.Bottom + 8, 430, 1));
             //Draws the other occupants details at the specified location and with the specified size.
             result = new PdfTextElement("Name of other occupant 1", textTopicFonts).Draw(currentPage, new RectangleF(Padding, result.Bounds.Bottom + 19, halfBounds.Width- alignment, halfBounds.Height));
             result = new PdfTextElement("Name of other occupant 2", textTopicFonts).Draw(currentPage, new RectangleF(xPosition, result.Bounds.Y, halfBounds.Width- alignment, halfBounds.Height));
