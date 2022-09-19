@@ -22,18 +22,14 @@ namespace LeaseAgreement
         int smallTextMargin = 10;
         int largeTextMargin = 15;
         SizeF clientSize;
-
-        //Initializes a new instance of the Syncfusion.Pdf.Graphics.PdfTrueTypeFont class.
-        static FileStream streamRegular = new FileStream(@"..\..\..\Data\OpenSans-Regular.ttf", FileMode.Open, FileAccess.Read);
-        PdfFont titleFont = new PdfTrueTypeFont(streamRegular, 20f, PdfFontStyle.Bold);
-        PdfFont titleInnerFonts = new PdfTrueTypeFont(streamRegular, 12f, PdfFontStyle.Bold);
-        PdfFont textTopicFonts = new PdfTrueTypeFont(streamRegular, 10f, PdfFontStyle.Bold);
-        PdfFont textFont = new PdfTrueTypeFont(streamRegular, 10f, PdfFontStyle.Regular);
-        PdfFont textFontTerms = new PdfTrueTypeFont(streamRegular, 8f, PdfFontStyle.Regular);
-
-        //Initializes a new instance of the Syncfusion.Pdf.Graphics.PdfColor class.
-        static PdfColor color = new PdfColor(217, 217, 217);
-        PdfBrush drawLine = new PdfSolidBrush(color);
+        FileStream streamRegular;
+        PdfFont titleFont;
+        PdfFont titleInnerFonts;
+        PdfFont textTopicFonts;
+        PdfFont textFont;
+        PdfFont textFontTerms ;
+        PdfColor color;
+        PdfBrush drawLine;
         PdfPage currentPage;
         int alignment = 50;
         float xPosition = 325.5f;
@@ -46,6 +42,16 @@ namespace LeaseAgreement
         public LeaseDocument(LeaseModel model)
         {
             this.model = model;
+            //Initializes a new instance of the Syncfusion.Pdf.Graphics.PdfTrueTypeFont class.
+            streamRegular = new FileStream(@"../../../Data/OpenSans-Regular.ttf", FileMode.Open, FileAccess.Read);
+            titleFont = new PdfTrueTypeFont(streamRegular, 20f, PdfFontStyle.Bold);
+            titleInnerFonts = new PdfTrueTypeFont(streamRegular, 12f, PdfFontStyle.Bold);
+            textTopicFonts = new PdfTrueTypeFont(streamRegular, 10f, PdfFontStyle.Bold);
+            textFont = new PdfTrueTypeFont(streamRegular, 10f, PdfFontStyle.Regular);
+            textFontTerms = new PdfTrueTypeFont(streamRegular, 8f, PdfFontStyle.Regular);
+            //Initializes a new instance of the Syncfusion.Pdf.Graphics.PdfColor class.
+            color = new PdfColor(217, 217, 217);
+            drawLine = new PdfSolidBrush(color);
         }
         #endregion
         #region Methods
@@ -69,8 +75,8 @@ namespace LeaseAgreement
             RectangleF headerBounds = new RectangleF(0, 0, 595, 130);
             //Added the header of the page
             PdfPageTemplateElement header = new PdfPageTemplateElement(headerBounds);
-            //
-            FileStream stream1 = new FileStream(@"..\..\..\Data\Logo.png", FileMode.Open);
+            //Load the image as stream.
+            FileStream stream1 = new FileStream(@"../../../Data/Logo.png", FileMode.Open);
             PdfImage image = new PdfBitmap(stream1);
             PdfBrush drawTopics = new PdfSolidBrush(Color.White);
             PdfColor color = new PdfColor(53,67,168);
@@ -104,6 +110,7 @@ namespace LeaseAgreement
             //Save the documents
             document.Save(stream);
             document.Close(true);
+            stream1.Dispose();
         }
         /// <summary>
         /// Generate the pages

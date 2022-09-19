@@ -132,7 +132,7 @@ namespace LeaseAgreement
         /// <returns>Terma of lease details</returns>
         private static TermsofLease GenerateTermsofLeaseDetails()
         {
-            string json = File.ReadAllText(@"..\..\..\Data\StringofData.json");
+            string json = File.ReadAllText(@"../../../Data/StringofData.json");
             TermsofLease Data = JsonConvert.DeserializeObject<TermsofLease>(json);
             return new TermsofLease
             {
