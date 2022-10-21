@@ -1,7 +1,7 @@
-##### Example: JobOfferLetter
+##### Example: Job Offer Letter
 
 # Purpose
-The JobOfferLetter project is an example showing how to generate an Job Offer Letter Form document using the PDF library. The example demonstrates a simple one-page document that includes a text, images.
+The JobOfferLetter project is an example of the Job Offer Letter generation. The example demonstrates a simple one-page document that includes a text, images.
 
 
 # Prerequisites
@@ -15,7 +15,7 @@ The JobOfferLetter project is an example showing how to generate an Job Offer Le
 # Description
 
 ### Image
-Image of the logo of the airplane is located in the **Assets/Image/logo.png**.
+Image of the logo is located in the **Assets/Image/logo.png**.
 
 ### Output file
 The example creates the file **JobOfferLetter.pdf** in the output **bin/(debug|release)/net6.0** folder.
