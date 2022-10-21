@@ -25,7 +25,7 @@ namespace JobOfferLetter
         public JobOfferLetterDocument(JobOfferLetterModel model)
         {
             this.model = model;
-            fontStream = new FileStream(@"../../../Assets/Fonts/OpenSans-Regular.ttf", FileMode.Open, FileAccess.Read);
+            fontStream = new FileStream(@"../../../Assets/Font/OpenSans-Regular.ttf", FileMode.Open, FileAccess.Read);
             
         }
         /// <summary>
@@ -34,7 +34,7 @@ namespace JobOfferLetter
         /// <param name="Stream">The file stream.</param>
         public void GeneratePdf(Stream stream)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NRAiBiAaIQQuGjN/V0Z+X09EaFtFVmJLYVB3WmpQdldgdVRMZVVbQX9PIiBoS35RdEVqW3ZecnBRRmJZVkBy");
+            
             //Create a new PDF document.
             PdfDocument document = new PdfDocument();
             //Set the margin of the page.
@@ -51,7 +51,6 @@ namespace JobOfferLetter
             FileStream imageStream = new FileStream(@"../../../Assets/Image/logo.png", FileMode.Open, FileAccess.Read);
             //Load the image from the stream.
             PdfBitmap image = new PdfBitmap(imageStream);
-            //PdfBrush headerBrush = new PdfSolidBrush(new PdfColor(53, 67, 168));
             //Draws the header rectangle at the specified location and with the specified size.
             header.Graphics.DrawRectangle(PdfBrushes.DarkBlue, headerBounds);
             //Draws the specified Image at the specified location and with the specified size.
