@@ -26,7 +26,6 @@ namespace JobOfferLetter
         {
             this.model = model;
             fontStream = new FileStream(@"../../../Assets/Font/OpenSans-Regular.ttf", FileMode.Open, FileAccess.Read);
-            
         }
         /// <summary>
         /// Generate the PDF document
@@ -80,7 +79,7 @@ namespace JobOfferLetter
             var headerText = new PdfTextElement("Dear John Smith,", new PdfTrueTypeFont(fontStream, 14, PdfFontStyle.Bold));
             //Draws the element on the page with the specified page and PointF structure.
             PdfLayoutResult result =headerText.Draw(currentPage, new PointF(50, 40));
-            result = new PdfTextElement(model.OfferLetterContent.BodyofContent, new PdfTrueTypeFont(fontStream, 14)).Draw(currentPage, new PointF(result.Bounds.X, result.Bounds.Bottom+20));
+            result = new PdfTextElement(model.OfferLetterContent.BodyofContent, new PdfTrueTypeFont(fontStream, 14)).Draw(currentPage, new RectangleF(result.Bounds.X, result.Bounds.Bottom + 20, 595 - 100, 0));
             //Initializes a new instance of the PdfTextElement class with the text and PdfFont.
             headerText = new PdfTextElement("Sincerely, \nAmazeFox PVT LTD \nMicKin \n(Managing Director)", new PdfTrueTypeFont(fontStream, 14, PdfFontStyle.Bold));
             //Draws the element on the page with the specified page and PointF structure
