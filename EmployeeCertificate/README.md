@@ -20,4 +20,4 @@ Images for the project is located in the **Assets/** folder.
 The example creates the file **EmployeeCertificate.pdf** in the output **bin/(debug|release)/net6.0** folder.
 
 Refer to the following Output screenshot 
-![Output image](EmployeeCertificate/Result/OutputImage.PNG)
+![Output image](EmployeeCertificate/Result/OutputImage.png)
