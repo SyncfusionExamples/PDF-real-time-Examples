@@ -21,4 +21,5 @@ Image of the logo is located in the **Assets/Image/logo.png**.
 The example creates the file **HospitalDischarge.pdf** in the output **bin/(debug|release)/net6.0** folder.
 
 Refer to the following Output screenshot 
-![Output image1](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/HospitalDischarge/HospitalDischarge/Results/HospitalDischarge.png)
+
+![Output image1](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/HospitalDischarge/HospitalDischarge/Results/HospitalDischargeImage.png)

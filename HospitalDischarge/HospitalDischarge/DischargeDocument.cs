@@ -132,7 +132,7 @@ namespace HospitalDocument
             currentPage.Graphics.DrawRectangle(brush, new RectangleF(rectanglePadding, result.Bounds.Bottom+5, 500, 1));
             //Draws the parties details at the specified location and with the specified size.
             result = new PdfTextElement("Patient UID :"+" "+model.PatientDetails.PatientUID.ToString(), textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, halfBounds.Width - alignment, halfBounds.Height));
-            result = new PdfTextElement("Admission No   :"+" "+ model.AdmissionDetails.AdmissionNo.ToString(), textTopicFonts).Draw(currentPage, new RectangleF(xPosition, result.Bounds.Y, halfBounds.Width - alignment, halfBounds.Height));
+            result = new PdfTextElement("Admission No :"+" "+ model.AdmissionDetails.AdmissionNo.ToString(), textTopicFonts).Draw(currentPage, new RectangleF(xPosition, result.Bounds.Y, halfBounds.Width - alignment, halfBounds.Height));
             result = new PdfTextElement("Name :" + " " + model.PatientDetails.Name, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, halfBounds.Width - alignment, halfBounds.Height));
             result = new PdfTextElement("Admission Date :"+" " + model.AdmissionDetails.AdmissionDate.ToString(), textFont).Draw(currentPage, new RectangleF(xPosition, result.Bounds.Y, halfBounds.Width - alignment, halfBounds.Height));
             result = new PdfTextElement("Age :" + " "+model.PatientDetails.Age, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, halfBounds.Width - alignment, halfBounds.Height));
@@ -166,7 +166,7 @@ namespace HospitalDocument
             result = new PdfTextElement("Key findings, on physical examination at the time of admission:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, Bounds.Width - alignment, Bounds.Height));
             result = new PdfTextElement("BP(mmHg):"+" "+model.DischargeDetails.PhysicalExamination.BP+","+ "Pulse(/min):"+" "+model.DischargeDetails.PhysicalExamination.Pulse.ToString(), textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));
             result = new PdfTextElement("General Appearance:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, Bounds.Width - alignment, Bounds.Height));
-            result = new PdfTextElement("Head/Eyes/Nose/Throat/Neck, Heart, Chest/Lung, Abdomen, Skin, Extreminities/Spine, Neurological Examination:"+" "+model.DischargeDetails.GeneralAppearance.Disease, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));
+            result = new PdfTextElement("Head/Eyes/Nose/Throat/Neck, Heart, Chest/Lung, Abdomen, Skin, Extreminities/Spine and Neurological Examination:"+" "+model.DischargeDetails.GeneralAppearance.Disease, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));
             return result;
         }
         /// <summary>
@@ -183,13 +183,13 @@ namespace HospitalDocument
             //Draws the line at the specified location and with the specified size.
             currentPage.Graphics.DrawRectangle(brush, new RectangleF(rectanglePadding, y, 500, 1));
             //Draws the lease period details at the specified location and with the specified size.
-            var result = new PdfTextElement("Summary of key Investigation during Hospitalization:", textTopicFonts).Draw(currentPage, new RectangleF(padding, y + 14, clientSize.Width, 0));
+            var result = new PdfTextElement("Summary of the Key Investigations during Hospitalization:", textTopicFonts).Draw(currentPage, new RectangleF(padding, y + 14, clientSize.Width, 0));
             result = new PdfTextElement(model.DischargeDetails.Investigation, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));
             result = new PdfTextElement("Discharge Medication:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, Bounds.Width - alignment, Bounds.Height));
             result = new PdfTextElement(model.DischargeDetails.Medication, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));
             result = new PdfTextElement("Discharge Instructions:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, Bounds.Width - alignment, Bounds.Height));
             result = new PdfTextElement(model.DischargeDetails.Instructions, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));
-            result = new PdfTextElement("Patient / Attendant:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, Bounds.Width - alignment, Bounds.Height));
+            result = new PdfTextElement("Patient/Attendant:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, Bounds.Width - alignment, Bounds.Height));
             result = new PdfTextElement(model.DischargeDetails.Patient, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));
             result = new PdfTextElement("Name      :"+" "+model.SignatureDetails.Name, textTopicFonts).Draw(currentPage, new RectangleF(380+padding, result.Bounds.Bottom + 16, Bounds.Width - alignment, Bounds.Height));
             currentPage.Graphics.DrawRectangle(lineBrush, new RectangleF(440+padding, result.Bounds.Bottom, 60, 1));

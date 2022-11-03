@@ -72,13 +72,13 @@ namespace HospitalDocument
         {
             return new DischargeDetails
             {
-                FinalDiagnosis = "Fracture at Wrist and Hand Level",
+                FinalDiagnosis = "Fracture at Wrist and Hand Level.",
                 Investigation = "Hemogram, X-Ray",
                 PhysicalExamination = GeneratePhysicalExamination(),
                 GeneralAppearance = GenerateGeneralAppearance(),
-                Medication = "Zingrenn, Ausimsnds",
-                Instructions = "No activity restrictions, regular diet, follow up in two - three weeks with regular physician",
-                Patient = "I/We have understood the Instructions given about the Medication Dosage and Discharge.",
+                Medication = "Zingrenn and Ausimsnds",
+                Instructions = "No activity restrictions, regular diet and follow up in two - three weeks with regular physician.",
+                Patient = "I have understood the Instructions given about the Medication Dosage and Discharge.",
             };
         }
         /// <summary>
