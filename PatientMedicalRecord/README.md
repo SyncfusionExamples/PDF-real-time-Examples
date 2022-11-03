@@ -16,7 +16,7 @@ The PatientMedicalRecord project is an example of medical report generation. Thi
 Image (Logo) of project is located in the **Assets/logo.png**.
 
 ### Output file
-The example creates the file **BoardingPass.pdf** in the output **bin/(debug|release)/net6.0** folder.
+The example creates the file **MedicalRecord.pdf** in the output **bin/(debug|release)/net6.0** folder.
 
 Refer to the following Output screenshot 
 ![Output image](PatientMedicalRecord/Result/OutputImage.png)

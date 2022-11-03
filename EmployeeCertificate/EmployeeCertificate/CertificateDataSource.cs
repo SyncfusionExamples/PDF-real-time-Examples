@@ -20,7 +20,7 @@ namespace EmployeeCertificate
             {
                 EmployeeName = "John Smith",
                 ManagerSign = "../../../Assets/Sign.png", 
-                DateOfSign = DateTime.Now.ToString("dd MMM yyyy"),
+                DateOfSign = DateTime.Now.ToString("dd MMM, yyyy"),
             };
         }
     }

@@ -35,7 +35,7 @@ namespace PatientMedicalRecord
                 Name = "John Smith",
                 PhoneNo = "(706) 296-9894",
                 PatientAddress = GetPatientAddress(),
-                BirthDate = "February 8th 1984",
+                BirthDate = "February 8th, 1984",
                 Weight = 68.89f,
                 Height = 162f,
             };
