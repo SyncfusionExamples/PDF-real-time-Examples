@@ -76,7 +76,7 @@ namespace HospitalDocument
                 Investigation = "Hemogram, X-Ray",
                 PhysicalExamination = GeneratePhysicalExamination(),
                 GeneralAppearance = GenerateGeneralAppearance(),
-                Medication = "Zingrenn and Ausimsnds",
+                Medication = "Acetaminophen and Cephalosporins",
                 Instructions = "No activity restrictions, regular diet and follow up in two - three weeks with regular physician.",
                 Patient = "I have understood the Instructions given about the Medication Dosage and Discharge.",
             };
