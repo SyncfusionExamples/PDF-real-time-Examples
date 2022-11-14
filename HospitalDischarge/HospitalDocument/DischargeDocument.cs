@@ -62,7 +62,7 @@ namespace HospitalDocument
         /// <param name="Stream">The file stream.</param>
         public void GeneratePdf(Stream stream)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NRAiBiAaIQQuGjN/V0Z+X09EaFtFVmJLYVB3WmpQdldgdVRMZVVbQX9PIiBoS35RdEVqW3ZecnBRRmJZVkBy");
+           
             //Create a new PDF document.
             PdfDocument document = new PdfDocument();
             //Set all margin is zero
