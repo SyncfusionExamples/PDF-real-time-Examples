@@ -117,12 +117,12 @@ namespace EmployeeCertificate
             result = new PdfTextElement(text, nameFont, PdfBrushes.DarkBlue).Draw(currentPage, bounds);
 
             //Draw content text 
-            text = "For your stellar performance for the month of December";
+            text = "for stellar performance for the month of December";
             bounds = GetBounds(text, result.Bounds.Bottom + 10, contentFont, clientSize.Width);
             result = new PdfTextElement(text, contentFont, new PdfPen(Color.Black, 0.5f)).Draw(currentPage, bounds);
 
             //Draw content text 
-            text = "Thank you for always showing us the right way with your attention to details. We feel lucky to have some one like you amidst us. Cheers!";
+            text = "Thank you for always showing us the right way with your attention to detail. We feel lucky to have someone like you amidst us. Cheers!";
             bounds = GetBounds(text, result.Bounds.Bottom + 50, textFont, 370);
             PdfTextElement textElement = new PdfTextElement(text, textFont);
             textElement.StringFormat = new PdfStringFormat(PdfTextAlignment.Center);
@@ -141,7 +141,7 @@ namespace EmployeeCertificate
             //Draw line
             currentPage.Graphics.DrawLine(new PdfPen(Color.Black), new PointF(450, clientSize.Height - 80), new PointF(520, clientSize.Height - 80));
             //Draw manager text 
-            new PdfTextElement("Date:", footerFont).Draw(currentPage, new PointF(475, clientSize.Height - 75));
+            new PdfTextElement("Date", footerFont).Draw(currentPage, new PointF(475, clientSize.Height - 75));
             //Draw date
             new PdfTextElement(model.DateOfSign, footerFont).Draw(currentPage, new PointF(455, clientSize.Height-100));
 

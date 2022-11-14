@@ -264,7 +264,7 @@ namespace PatientMedicalRecord
             result = new PdfTextElement(model.MedicalInformation.Immunizations, textFont).Draw(currentPage, new RectangleF(leftPadding, result.Bounds.Bottom, halfwidth, rectangleBounds.Height));
 
             //Add medical problems at the specified location and specified size 
-            result = new PdfTextElement("List any Medical Problems(asthma, seizures, headache):", textFont, new PdfPen(Color.Black, 0.5f)).Draw(currentPage, new RectangleF(leftPadding, result.Bounds.Bottom + 20, clientSize.Width, rectangleBounds.Height));
+            result = new PdfTextElement("List any Medical Problems(asthma, seizures, headache)", textFont, new PdfPen(Color.Black, 0.5f)).Draw(currentPage, new RectangleF(leftPadding, result.Bounds.Bottom + 20, clientSize.Width, rectangleBounds.Height));
             result = new PdfTextElement(model.MedicalInformation.MedicalProblem, textFont).Draw(currentPage, new RectangleF(leftPadding, result.Bounds.Bottom, halfwidth, rectangleBounds.Height));
 
             //Add address at the specified location and specified size 
@@ -274,8 +274,8 @@ namespace PatientMedicalRecord
             result1 = new PdfTextElement(address, textFont).Draw(currentPage, new RectangleF(rightPadding, result1.Bounds.Bottom, halfwidth, rectangleBounds.Height));
 
             //Add policy number and medical insurance details at the specified location and specified size 
-            result1 = new PdfTextElement("Policy Number:", textFont, new PdfPen(Color.Black, 0.5f)).Draw(currentPage, new RectangleF(rightPadding, result.Bounds.Bottom + 20, halfwidth, rectangleBounds.Height));
-            result = new PdfTextElement("If any Medical Insurance:", textFont, new PdfPen(Color.Black, 0.5f)).Draw(currentPage, new RectangleF(leftPadding, result.Bounds.Bottom + 20, halfwidth, rectangleBounds.Height));        
+            result1 = new PdfTextElement("Policy Number", textFont, new PdfPen(Color.Black, 0.5f)).Draw(currentPage, new RectangleF(rightPadding, result.Bounds.Bottom + 20, halfwidth, rectangleBounds.Height));
+            result = new PdfTextElement("If any Medical Insurance", textFont, new PdfPen(Color.Black, 0.5f)).Draw(currentPage, new RectangleF(leftPadding, result.Bounds.Bottom + 20, halfwidth, rectangleBounds.Height));        
             result = new PdfTextElement(model.MedicalInformation.MedicalInsurance, textFont).Draw(currentPage, new RectangleF(leftPadding, result.Bounds.Bottom, halfwidth, rectangleBounds.Height));
             result1 = new PdfTextElement(model.MedicalInformation.PolicyNumber.ToString(), textFont).Draw(currentPage, new RectangleF(rightPadding, result1.Bounds.Bottom, halfwidth, rectangleBounds.Height));
             #endregion
