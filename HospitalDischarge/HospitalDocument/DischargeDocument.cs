@@ -41,7 +41,7 @@ namespace HospitalDocument
         {
             this.model = model;
             //Initializes a new instance of the Syncfusion.Pdf.Graphics.PdfTrueTypeFont class.
-            fontStream = new FileStream(@"../../../Assets/Fonts/OpenSans-Regular.ttf", FileMode.Open, FileAccess.Read);
+            fontStream = new FileStream(@"../../../Assets/Font/OpenSans-Regular.ttf", FileMode.Open, FileAccess.Read);
             titleFont = new PdfTrueTypeFont(fontStream, 20f, PdfFontStyle.Bold);
             addressFont = new PdfTrueTypeFont(fontStream, 12f, PdfFontStyle.Regular);
             titleInnerFonts = new PdfTrueTypeFont(fontStream, 12f, PdfFontStyle.Bold);
@@ -62,6 +62,7 @@ namespace HospitalDocument
         /// <param name="Stream">The file stream.</param>
         public void GeneratePdf(Stream stream)
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NRAiBiAaIQQuGjN/V0Z+X09EaFtFVmJLYVB3WmpQdldgdVRMZVVbQX9PIiBoS35RdEVqW3ZecnBRRmJZVkBy");
             //Create a new PDF document.
             PdfDocument document = new PdfDocument();
             //Set all margin is zero
