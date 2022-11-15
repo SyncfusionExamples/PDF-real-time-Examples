@@ -144,7 +144,7 @@ namespace LeaseAgreement
             result = new PdfTextElement("Property subject to lease:", textTopicFonts).Draw(currentPage, new RectangleF(Padding, result.Bounds.Bottom + 16, halfBounds.Width - alignment, halfBounds.Height));
             result = new PdfTextElement("Lease Term", textTopicFonts).Draw(currentPage, new RectangleF(xPosition, result.Bounds.Y, halfBounds.Width - alignment, halfBounds.Height));
 
-            string address = model.Parties.PropertyDetails.PlatNo + ", " +model.Parties.PropertyDetails.Street + ", \n" + model.Parties.PropertyDetails.City + ", " + model.Parties.PropertyDetails.PinCode;
+            string address = model.Parties.PropertyDetails.PlatNo + ", " +model.Parties.PropertyDetails.Street + ", \n" + model.Parties.PropertyDetails.City + " " + model.Parties.PropertyDetails.PinCode;
             result = new PdfTextElement(address, textFont).Draw(currentPage, new RectangleF(Padding, result.Bounds.Bottom + 2, halfBounds.Width - alignment, halfBounds.Height));
             result = new PdfTextElement(model.Parties.LeaseTerm, textFont).Draw(currentPage, new RectangleF(xPosition, result.Bounds.Y, halfBounds.Width - alignment, halfBounds.Height));
             result = new PdfTextElement("Date payment period on every month", textTopicFonts).Draw(currentPage, new RectangleF(Padding, result.Bounds.Bottom + 26, halfBounds.Width - alignment, halfBounds.Height));

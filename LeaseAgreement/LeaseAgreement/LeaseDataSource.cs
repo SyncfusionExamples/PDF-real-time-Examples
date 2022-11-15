@@ -57,8 +57,8 @@ namespace LeaseAgreement
             {
                 PlatNo = "54432 Clarendon alley",
                 Street = "9929 Almo Ave",
-                City = "Washington",
-                PinCode = "DC 20062",
+                City = "Washington DC",
+                PinCode = 20062,
             };
         }
         /// <summary>
