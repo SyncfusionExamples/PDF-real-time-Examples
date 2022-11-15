@@ -81,7 +81,8 @@ namespace PatientMedicalRecord
             {
                 PlotNo = "9080 Bolgor",
                 StreetName = "Fosfal road", 
-                PinCode = 8989214, 
+                City = "Atlanta",
+                PinCode = "GA 8989214", 
                 Country = "United States",
             };
         }
@@ -96,7 +97,7 @@ namespace PatientMedicalRecord
             {
                 ClinicName = "Alosius Hospital",
                 Immunizations = "Yes",
-                MedicalProblem = "Asthma, Low Pressure, Diabetes",
+                MedicalProblem = "Asthma, low BP, diabetes",
                 MedicalInsurance = "Yes, ITF Co",
                 PhoneNumber = "(1111111) 182182-1212",
                 Address = GetAddress(),
@@ -113,8 +114,9 @@ namespace PatientMedicalRecord
             return new Address
             {
                 StreetName = "Doe Street",
-                Landmark = "Near ombos", 
-                PinCode = 481919,
+                Landmark = "Near ombos, Clifton Road NE", 
+                City = "Atlanta",
+                PinCode = "GA 481919",
             };
         }
     }

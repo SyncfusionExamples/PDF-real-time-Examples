@@ -35,7 +35,7 @@ namespace HospitalDocument
                 PatientUID = 58,
                 Name = "Laura Hase",
                 Age = 40,
-                Address = "New York, 1823467",
+                Address = "New York, NY 1823467",
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace HospitalDocument
             return new ConsultantDetails
             {
                 DoctorName = "Dr. John Mc",
-                Speciality = "Infectious Diseases Practitioner",
+                Speciality = "Orthopedic practitioner",
             };
         }
         /// <summary>
@@ -72,13 +72,13 @@ namespace HospitalDocument
         {
             return new DischargeDetails
             {
-                FinalDiagnosis = "Fracture at Wrist and Hand Level.",
+                FinalDiagnosis = "Wrist fracture",
                 Investigation = "Hemogram, X-Ray",
                 PhysicalExamination = GeneratePhysicalExamination(),
                 GeneralAppearance = GenerateGeneralAppearance(),
                 Medication = "Acetaminophen and Cephalosporins",
-                Instructions = "No activity restrictions, regular diet and follow up in two - three weeks with regular physician.",
-                Patient = "I have understood the Instructions given about the Medication Dosage and Discharge.",
+                Instructions = "No activity restrictions, regular diet and follow up in two-three weeks with regular physician.",
+                Patient = "I have understood the instructions given about the medication dosage and discharge.",
             };
         }
         /// <summary>

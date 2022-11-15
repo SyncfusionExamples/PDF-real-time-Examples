@@ -122,7 +122,7 @@ namespace EmployeeCertificate
             result = new PdfTextElement(text, contentFont, new PdfPen(Color.Black, 0.5f)).Draw(currentPage, bounds);
 
             //Draw content text 
-            text = "Thank you for always showing us the right way with your attention to detail. We feel lucky to have someone like you amidst us. Cheers!";
+            text = "Thank you for your hardwork and attention. We feel lucky to have someone like you amidst us. Cheers!";
             bounds = GetBounds(text, result.Bounds.Bottom + 50, textFont, 370);
             PdfTextElement textElement = new PdfTextElement(text, textFont);
             textElement.StringFormat = new PdfStringFormat(PdfTextAlignment.Center);

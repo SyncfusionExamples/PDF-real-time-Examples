@@ -30,7 +30,7 @@ namespace JobOfferLetter
             return new Address
             {
                 Street = "123 Dokato, St Church,",
-                City = "New York, 182916",               
+                City = "New York, NY 182916",               
                 Phone = "456-6780-21",
                 Website = "amazefoxsite.com"
             };
