@@ -129,11 +129,15 @@ namespace PatientMedicalRecord.Model
         /// Get or set the street name
         /// </summary>
         public string StreetName { get; set; }
+        /// <summary>
+        /// Get or set the city name
+        /// </summary>
+        public string City { get; set; }
 
         /// <summary>
         /// Get or set the pincode
         /// </summary>
-        public int PinCode { get; set; }
+        public string PinCode { get; set; }
 
         /// <summary>
         /// Get or set the country name
@@ -196,8 +200,13 @@ namespace PatientMedicalRecord.Model
         public string Landmark { get; set; }
 
         /// <summary>
+        /// Get or set the city 
+        /// </summary>
+        public string City { get; set; }
+
+        /// <summary>
         /// Get or set the pincode
         /// </summary>
-        public int PinCode { get; set; }
+        public string PinCode { get; set; }
     }
 }

@@ -62,7 +62,7 @@ namespace HospitalDocument
         /// <param name="Stream">The file stream.</param>
         public void GeneratePdf(Stream stream)
         {
-           
+            
             //Create a new PDF document.
             PdfDocument document = new PdfDocument();
             //Set all margin is zero
@@ -88,7 +88,7 @@ namespace HospitalDocument
             //Draws the text at the specified location and with the specified size.
             header.Graphics.DrawString("JAMES HOSPITAL", titleFont, drawTopics, new RectangleF(120, 51.5f, 0, 0));
             header.Graphics.DrawString("123 Dokato, St Church,", addressFont, drawTopics, new RectangleF(420, 38.5f, 0, 0));
-            header.Graphics.DrawString("New York, 182916", addressFont, drawTopics, new RectangleF(420, 53.5f, 0, 0));
+            header.Graphics.DrawString("New York, NY 182916", addressFont, drawTopics, new RectangleF(420, 53.5f, 0, 0));
             header.Graphics.DrawString("Phone: 456-6780-21", addressFont, drawTopics, new RectangleF(420, 68.5f, 0, 0));
             header.Graphics.DrawString("jameshospital.com", addressFont, drawTopics, new RectangleF(420, 83.5f, 0, 0));
             document.Template.Top = header;
@@ -140,8 +140,8 @@ namespace HospitalDocument
             result = new PdfTextElement("Discharge Date :"+" "+model.AdmissionDetails.DischargeDate, textFont).Draw(currentPage, new RectangleF(xPosition, result.Bounds.Y, halfBounds.Width - alignment, halfBounds.Height));
 
             result = new PdfTextElement("Address :"+" "+model.PatientDetails.Address, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, halfBounds.Width - alignment, halfBounds.Height));
-            result = new PdfTextElement("Primary Treating Consultant’s Details:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, halfBounds.Width - alignment, halfBounds.Height));
-            result = new PdfTextElement("Discharge Status:", textTopicFonts).Draw(currentPage, new RectangleF(xPosition, result.Bounds.Y, halfBounds.Width - alignment, halfBounds.Height));
+            result = new PdfTextElement("Primary treating consultant’s details:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, halfBounds.Width - alignment, halfBounds.Height));
+            result = new PdfTextElement("Discharge status:", textTopicFonts).Draw(currentPage, new RectangleF(xPosition, result.Bounds.Y, halfBounds.Width - alignment, halfBounds.Height));
             result = new PdfTextElement(model.ConsultantDetails.DoctorName, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, halfBounds.Width - alignment, halfBounds.Height));
             result = new PdfTextElement(model.AdmissionDetails.DischargeStatus, textFont).Draw(currentPage, new RectangleF(xPosition, result.Bounds.Y, halfBounds.Width - alignment, halfBounds.Height));
             result = new PdfTextElement("Speciality :"+" "+model.ConsultantDetails.Speciality, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, halfBounds.Width - alignment, halfBounds.Height));
@@ -162,12 +162,12 @@ namespace HospitalDocument
             //Draws the line at the specified location and with the specified size.
             currentPage.Graphics.DrawRectangle(brush, new RectangleF(rectanglePadding, y, 500, 1));
             //Draws the lease period details at the specified location and with the specified size.
-            var result = new PdfTextElement("Final Diagnosis at the time of Admission:", textTopicFonts).Draw(currentPage, new RectangleF(padding, y+14, clientSize.Width, 0));
+            var result = new PdfTextElement("Final diagnosis at the time of admission:", textTopicFonts).Draw(currentPage, new RectangleF(padding, y+14, clientSize.Width, 0));
             result = new PdfTextElement(model.DischargeDetails.FinalDiagnosis, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));
             result = new PdfTextElement("Key findings, on physical examination at the time of admission:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, Bounds.Width - alignment, Bounds.Height));
             result = new PdfTextElement("BP(mmHg):"+" "+model.DischargeDetails.PhysicalExamination.BP+","+ "Pulse(/min):"+" "+model.DischargeDetails.PhysicalExamination.Pulse.ToString(), textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));
-            result = new PdfTextElement("General Appearance:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, Bounds.Width - alignment, Bounds.Height));
-            result = new PdfTextElement("Head/Eyes/Nose/Throat/Neck, Heart, Chest/Lung, Abdomen, Skin, Extreminities/Spine and Neurological Examination:"+" "+model.DischargeDetails.GeneralAppearance.Disease, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));
+            result = new PdfTextElement("General appearance:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, Bounds.Width - alignment, Bounds.Height));
+            result = new PdfTextElement("Head/Eyes/Nose/Throat/Neck, Heart, Chest/Lung, Abdomen, Skin, Extreminities/Spine and Neurological examination:"+" "+model.DischargeDetails.GeneralAppearance.Disease, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));
             return result;
         }
         /// <summary>
@@ -184,11 +184,11 @@ namespace HospitalDocument
             //Draws the line at the specified location and with the specified size.
             currentPage.Graphics.DrawRectangle(brush, new RectangleF(rectanglePadding, y, 500, 1));
             //Draws the lease period details at the specified location and with the specified size.
-            var result = new PdfTextElement("Summary of the Key Investigations during Hospitalization:", textTopicFonts).Draw(currentPage, new RectangleF(padding, y + 14, clientSize.Width, 0));
+            var result = new PdfTextElement("Summary of the key investigations during hospitalization:", textTopicFonts).Draw(currentPage, new RectangleF(padding, y + 14, clientSize.Width, 0));
             result = new PdfTextElement(model.DischargeDetails.Investigation, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));
-            result = new PdfTextElement("Discharge Medication:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, Bounds.Width - alignment, Bounds.Height));
+            result = new PdfTextElement("Discharge medication:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, Bounds.Width - alignment, Bounds.Height));
             result = new PdfTextElement(model.DischargeDetails.Medication, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));
-            result = new PdfTextElement("Discharge Instructions:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, Bounds.Width - alignment, Bounds.Height));
+            result = new PdfTextElement("Discharge instructions:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, Bounds.Width - alignment, Bounds.Height));
             result = new PdfTextElement(model.DischargeDetails.Instructions, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));
             result = new PdfTextElement("Patient/Attendant:", textTopicFonts).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 14, Bounds.Width - alignment, Bounds.Height));
             result = new PdfTextElement(model.DischargeDetails.Patient, textFont).Draw(currentPage, new RectangleF(padding, result.Bounds.Bottom + 2, Bounds.Width - alignment, Bounds.Height));

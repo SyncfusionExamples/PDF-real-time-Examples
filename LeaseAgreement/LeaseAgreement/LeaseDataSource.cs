@@ -39,7 +39,7 @@ namespace LeaseAgreement
         {
             return new Parties
             {
-                Title = "This Agreement is Executed By and Between the Parties:",
+                Title = "This agreement is executed by and between the parties:",
                 Lessor = "Elvis Peckham",
                 Lessee = "Torrin Adrienne",
                 LeaseTerm = "12 Month",
@@ -56,9 +56,9 @@ namespace LeaseAgreement
             return new PropertyDetails
             {
                 PlatNo = "54432 Clarendon alley",
-                Street = "9929 Almo PaWashingto,",
-                City = "District o,",
-                PinCode = 20062,
+                Street = "9929 Almo Ave",
+                City = "Washington",
+                PinCode = "DC 20062",
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace LeaseAgreement
                 Title = "Lease Period",
                 LeaseFrom = DateTime.Now.ToString("dddd, dd MMMM 2021"),
                 LeaseUntil = DateTime.Now.ToString("dddd, dd MMMM 2022"),
-                MonthlyLeaseAmount = 1200.00f,
+                MonthlyLeaseAmount = 1500.00f,
                 SecurityDebitAmount = 890.00f,
             };
         }

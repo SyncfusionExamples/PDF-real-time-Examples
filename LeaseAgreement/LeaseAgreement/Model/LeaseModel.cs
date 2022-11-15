@@ -111,7 +111,7 @@ namespace LeaseAgreement.Models
         /// <summary>
         /// Get or set the pincode
         /// </summary>
-        public int PinCode { get; set; }
+        public string PinCode { get; set; }
     }
 
     /// <summary>

@@ -79,7 +79,7 @@ namespace Invoice
             return new Address
             {
                 Name = "John Smith",
-                Street = "398 W Broadway, New York,",
+                Street = "398 W Broadway, Evanston Ave Fargo,",
                 City = "North Dakota, 10012",
                 State = "",
                 Email = "",
