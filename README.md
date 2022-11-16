@@ -10,7 +10,7 @@ Generate documents easily and quickly for a wide range of industries and busines
 </th>
 </tr>
 <tr>
-<td>[BoardingPass](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/BoardingPassProject/README.md)</td>
+<td>{{'[BoardingPass](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/BoardingPassProject/README.md)'| markdownify }}</td>
 <td>The BoardingPass project is an example of the boarding pass generation.</td>
 </tr>
 <tr>
