@@ -1,40 +1,41 @@
-# Syncfusion .NET PDF library
-Syncfusion's .NET PDF library (https://www.syncfusion.com/document-processing/pdf-framework/net). 
+# PDF-real-time-Examples
+Generate documents easily and quickly for a wide range of industries and businesses using [Syncfusion .NET PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net). With these available examples, you can create your own document right away.
+
 
 <table>
 <tr>
-<th style="font-size:14px">Sample Name 
+<th style="font-size:14px">Sample name 
 </th>
 <th style="font-size:14px">Description
 </th>
 </tr>
 <tr>
-<td>BoardingPass</td>
-<td>The BoardingPass project is an example of the boarding pass generation. The example demonstrates a simple one-page document that includes a text, images.[link the sample in BoardingPass](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/BoardingPassProject/README.md)</td>
+<td>[BoardingPass](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/BoardingPassProject/README.md)</td>
+<td>The BoardingPass project is an example of the boarding pass generation.</td>
 </tr>
 <tr>
-<td>EmployeeCertificate</td>
-<td>The EmployeeCertificate project is an example of the employee certificate generation. The example demonstrates a simple one-page document that includes a text, images.[link the sample in EmployeeCertificate](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/EmployeeCertificate/README.md)</td>
+<td>[EmployeeCertificate](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/EmployeeCertificate/README.md)</td>
+<td>The EmployeeCertificate project is an example of the employee appreciation certificate generation.</td>
 </tr>
 <tr>
-<td>HospitalDischarge</td>
-<td>The Hospital Discharge project is an example of the discharge summary generation. The example demonstrates a simple one-page document that includes a text, images.[link the sample in HospitalDischarge](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/HospitalDischarge/README.md)</td>
+<td>[HospitalDischarge](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/HospitalDischarge/README.md)</td>
+<td>This project is an example of patient discharge summary generation.</td>
 </tr>
 <tr>
-<td>Invoice</td>
-<td>The Invoice project is an example of the invoice generation.An invoice is a commercial document issued by a seller to a buyer relating to a sale transaction and indicating the products, quantities, and agreed-upon prices for products or services the seller had provided the buyer.[link the sample in Invoice](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/Invoice/README.md)</td>
+<td>[Invoice](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/Invoice/README.md)</td>
+<td>The Invoice project is an example of the invoice generation.An invoice is a commercial document issued by a seller to a buyer relating to a sale transaction and indicating the products, quantities, and agreed-upon prices for products or services the seller had provided the buyer.</td>
 </tr>
 <tr>
-<td>JobOfferLetter</td>
-<td>The JobOfferLetter project is an example of the Job Offer Letter generation. The example demonstrates a simple one-page document that includes a text, images.[link the sample in JobOfferLetter](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/JobOfferLetter/README.md)</td>
+<td>[JobOfferLetter](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/JobOfferLetter/README.md)</td>
+<td>The JobOfferLetter project is an example of the job offer letter generation.</td>
 </tr>
 <tr>
-<td>LeaseAgreement</td>
-<td>LeaseAgreement project is an example showing how to generate an Lease Agreement Draft Form document using the PDF library. This example demonstrates how to create a page document that contains paragraphs, and content with various styling.[link the sample in LeaseAgreement](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/LeaseAgreement/README.md)</td>
+<td>[LeaseAgreement](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/LeaseAgreement/README.md)</td>
+<td>LeaseAgreement project is an example showing how to generate an lease agreement draft form document using the PDF library.</td>
 </tr>
 <tr>
-<td>PatientMedicalRecord</td>
-<td>The PatientMedicalRecord project is an example of medical report generation. This example demonstrates a simple one-page document which inclues a text, images, etc.[link the sample in PatientMedicalRecord](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/PatientMedicalRecord/README.md)</td>
+<td>[PatientMedicalRecord](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/PatientMedicalRecord/README.md)</td>
+<td>The PatientMedicalRecord project is an example of patient medical report generation.</td>
 </tr>
 </table>
 
