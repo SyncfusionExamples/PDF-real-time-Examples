@@ -14,27 +14,27 @@ Generate documents easily and quickly for a wide range of industries and busines
 <td>The BoardingPass project is an example of the boarding pass generation.</td>
 </tr>
 <tr>
-<td>[EmployeeCertificate](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/EmployeeCertificate/README.md)</td>
+<td>{{'[EmployeeCertificate](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/EmployeeCertificate/README.md)'| markdownify }}</td>
 <td>The EmployeeCertificate project is an example of the employee appreciation certificate generation.</td>
 </tr>
 <tr>
-<td>[HospitalDischarge](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/HospitalDischarge/README.md)</td>
+<td>{{'[HospitalDischarge](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/HospitalDischarge/README.md)'| markdownify }}</td>
 <td>This project is an example of patient discharge summary generation.</td>
 </tr>
 <tr>
-<td>[Invoice](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/Invoice/README.md)</td>
+<td>{{'[Invoice](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/Invoice/README.md)'| markdownify }}</td>
 <td>The Invoice project is an example of the invoice generation.An invoice is a commercial document issued by a seller to a buyer relating to a sale transaction and indicating the products, quantities, and agreed-upon prices for products or services the seller had provided the buyer.</td>
 </tr>
 <tr>
-<td>[JobOfferLetter](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/JobOfferLetter/README.md)</td>
+<td>{{'[JobOfferLetter](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/JobOfferLetter/README.md)'| markdownify }}</td>
 <td>The JobOfferLetter project is an example of the job offer letter generation.</td>
 </tr>
 <tr>
-<td>[LeaseAgreement](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/LeaseAgreement/README.md)</td>
+<td>{{'[LeaseAgreement](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/LeaseAgreement/README.md)'| markdownify }}</td>
 <td>LeaseAgreement project is an example showing how to generate an lease agreement draft form document using the PDF library.</td>
 </tr>
 <tr>
-<td>[PatientMedicalRecord](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/PatientMedicalRecord/README.md)</td>
+<td>{{'[PatientMedicalRecord](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/PatientMedicalRecord/README.md)'| markdownify }}</td>
 <td>The PatientMedicalRecord project is an example of patient medical report generation.</td>
 </tr>
 </table>
