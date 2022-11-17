@@ -1,7 +1,7 @@
 ##### Example: Hospital Discharge
 
 # Purpose
-The Hospital Discharge project is an example of the discharge summary generation. The example demonstrates a simple one-page document that includes a text, images.
+This project is an example of patient discharge summary generation in hospital. This template captures the medical information related to patient during the stay in the hospital.
 
 
 # Prerequisites
@@ -22,4 +22,4 @@ The example creates the file **HospitalDischarge.pdf** in the output **bin/(debu
 
 Refer to the following Output screenshot 
 
-![Output image1](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/HospitalDischarge/HospitalDocument/Results/HospitalDischargeDocument.png)
+![Output image1](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/HospitalDischarge/HospitalDocument/Results/PatientDischargeSummary.jpg)
