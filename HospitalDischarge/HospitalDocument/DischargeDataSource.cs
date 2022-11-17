@@ -77,7 +77,7 @@ namespace HospitalDocument
                 PhysicalExamination = GeneratePhysicalExamination(),
                 GeneralAppearance = GenerateGeneralAppearance(),
                 Medication = "Acetaminophen and Cephalosporins",
-                Instructions = "No activity restrictions, regular diet and follow up in two-three weeks with regular physician.",
+                Instructions = "Physical therapy, regular diet and follow up in two-three weeks with regular physician.",
                 Patient = "I have understood the instructions given about the medication dosage and discharge.",
             };
         }
