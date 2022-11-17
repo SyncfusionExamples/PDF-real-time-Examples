@@ -21,4 +21,4 @@ Image of the logo is located in the **Assets/Image/logo.png**.
 The example creates the file **JobOfferLetter.pdf** in the output **bin/(debug|release)/net6.0** folder.
 
 Refer to the following Output screenshot 
-![Output image](JobOfferLetter/results/OutputImage.Png)
+![Output image](JobOfferLetter/results/JobOfferLetter.jpg)

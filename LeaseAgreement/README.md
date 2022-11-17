@@ -14,6 +14,6 @@
 
 # Refer to the following Output screenshot:
 
-![Output image1](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/LeaseAgreement/LeaseAgreement/Result/Img1.png)
+![Output image1](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/LeaseAgreement/LeaseAgreement/Result/LeaseAgreement0.jpg)
 
-![Output image2](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/LeaseAgreement/LeaseAgreement/Result/Img2.png)
+![Output image2](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/LeaseAgreement/LeaseAgreement/Result/LeaseAgreement1.jpg)

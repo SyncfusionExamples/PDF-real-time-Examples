@@ -22,4 +22,4 @@ The example creates the file **HospitalDischarge.pdf** in the output **bin/(debu
 
 Refer to the following Output screenshot 
 
-![Output image1](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/HospitalDischarge/HospitalDocument/Results/HospitalDischargeDocument.png)
+![Output image1](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/HospitalDischarge/HospitalDocument/Results/PatientDischargeSummary.jpg)

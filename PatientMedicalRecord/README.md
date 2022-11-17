@@ -19,4 +19,4 @@ Image (Logo) of project is located in the **Assets/logo.png**.
 The example creates the file **MedicalRecord.pdf** in the output **bin/(debug|release)/net6.0** folder.
 
 Refer to the following Output screenshot 
-![Output image](PatientMedicalRecord/Result/OutputImage.png)
+![Output image](PatientMedicalRecord/Result/MedicalRecord.jpg)
