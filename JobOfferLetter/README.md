@@ -1,7 +1,7 @@
 ##### Example: Job Offer Letter
 
 # Purpose
-The JobOfferLetter project is an example of the Job Offer Letter generation. The example demonstrates a simple one-page document that includes a text, images.
+This project is an example of generating employee job offer letter in the organization. Job offer letter refers to an official document employer gives to an employee in order to provide them with an offer of employment.
 
 
 # Prerequisites

@@ -1,7 +1,7 @@
 ##### Example: EmployeeCertificate
 
 # Purpose
-The EmployeeCertificate project is an example of the employee certificate generation. The example demonstrates a simple one-page document that includes a text, images.
+This project is an example of generating employee appreciation certificate. This certificate is one of the way to say thank you to the employees who work in their organization.
 
 # Prerequisites
 1) **Visual Studio 2017** or above is installed.

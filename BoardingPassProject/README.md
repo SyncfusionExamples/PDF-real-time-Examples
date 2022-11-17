@@ -1,7 +1,7 @@
 ##### Example: BoardingPass
 
 # Purpose
-The BoardingPass project is an example of the boarding pass generation. The example demonstrates a simple one-page document that includes a text, images.
+This project is an example of boarding pass generation. A boarding pass is a document provided by an airline during check-in, giving a passenger permission to board the airplane for a particular flight.
 
 
 # Prerequisites

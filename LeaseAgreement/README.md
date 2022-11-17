@@ -1,7 +1,7 @@
 ##### Example: LeaseAgreement
 
 # Purpose
-   LeaseAgreement project is an example showing how to generate an Lease Agreement Draft Form document using the PDF library. This example demonstrates how to create a page document that contains paragraphs, and content with various styling. 
+   This project is an example of lease agreement generation. A rental agreement is a contract of rental, usually written, between the owner of a property and a renter who desires to have temporary possession of the property. 
 
 # Prerequisites
 1) **Visual Studio 2017** or above is installed.

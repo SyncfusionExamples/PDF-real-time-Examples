@@ -10,32 +10,32 @@ Generate documents easily and quickly for a wide range of industries and busines
 </th>
 </tr>
 <tr>
-<td>{{'[BoardingPass](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/BoardingPassProject/README.md)'| markdownify }}</td>
-<td>The BoardingPass project is an example of the boarding pass generation.</td>
+<td>{{'[BoardingPass](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/BoardingPassProject)'| markdownify }}</td>
+<td>This project is an example of boarding pass generation. A boarding pass is a document provided by an airline during check-in, giving a passenger permission to board the airplane for a particular flight.</td>
 </tr>
 <tr>
-<td>{{'[EmployeeCertificate](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/EmployeeCertificate/README.md)'| markdownify }}</td>
-<td>The EmployeeCertificate project is an example of the employee appreciation certificate generation.</td>
+<td>{{'[EmployeeCertificate](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/EmployeeCertificate)'| markdownify }}</td>
+<td>This project is an example of generating employee appreciation certificate. This certificate is one of the way to say thank you to the employees who work in their organization.</td>
 </tr>
 <tr>
-<td>{{'[HospitalDischarge](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/HospitalDischarge/README.md)'| markdownify }}</td>
-<td>This project is an example of patient discharge summary generation.</td>
+<td>{{'[HospitalDischarge](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/HospitalDischarge)'| markdownify }}</td>
+<td>This project is an example of patient discharge summary generation in hospital. This template captures the medical information related to patient during the stay in the hospital.</td>
 </tr>
 <tr>
-<td>{{'[Invoice](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/Invoice/README.md)'| markdownify }}</td>
+<td>{{'[Invoice](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/Invoice)'| markdownify }}</td>
 <td>The Invoice project is an example of the invoice generation.An invoice is a commercial document issued by a seller to a buyer relating to a sale transaction and indicating the products, quantities, and agreed-upon prices for products or services the seller had provided the buyer.</td>
 </tr>
 <tr>
-<td>{{'[JobOfferLetter](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/JobOfferLetter/README.md)'| markdownify }}</td>
-<td>The JobOfferLetter project is an example of the job offer letter generation.</td>
+<td>{{'[JobOfferLetter](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/JobOfferLetter)'| markdownify }}</td>
+<td>This project is an example of generating employee job offer letter in the organization. Job offer letter refers to an official document employer gives to an employee in order to provide them with an offer of employment.</td>
 </tr>
 <tr>
-<td>{{'[LeaseAgreement](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/LeaseAgreement/README.md)'| markdownify }}</td>
-<td>LeaseAgreement project is an example showing how to generate an lease agreement draft form document using the PDF library.</td>
+<td>{{'[LeaseAgreement](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/LeaseAgreement)'| markdownify }}</td>
+<td>This project is an example of lease agreement generation. A rental agreement is a contract of rental, usually written, between the owner of a property and a renter who desires to have temporary possession of the property.</td>
 </tr>
 <tr>
-<td>{{'[PatientMedicalRecord](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/PatientMedicalRecord/README.md)'| markdownify }}</td>
-<td>The PatientMedicalRecord project is an example of patient medical report generation.</td>
+<td>{{'[PatientMedicalRecord](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/PatientMedicalRecord)'| markdownify }}</td>
+<td>This project is an example of generating patient medical record. The medical records are used to describe the systematic documentation of a single patient's medical history.</td>
 </tr>
 </table>
 

@@ -1,7 +1,7 @@
 ##### Example: PatientMedicalRecord
 
 # Purpose 
-The PatientMedicalRecord project is an example of medical report generation. This example demonstrates a simple one-page document which inclues a text, images, etc. 
+This project is an example of generating patient medical record. The medical records are used to describe the systematic documentation of a single patient's medical history. 
 
 # Prerequisites 
 1) **Visual Studio 2017** or above is installed.
