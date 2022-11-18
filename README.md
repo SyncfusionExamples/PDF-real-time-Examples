@@ -2,42 +2,15 @@
 Generate documents easily and quickly for a wide range of industries and businesses using [Syncfusion .NET PDF library](https://www.syncfusion.com/document-processing/pdf-framework/net). With these available examples, you can create your own document right away.
 
 
-<table>
-<tr>
-<th style="font-size:14px">Sample name 
-</th>
-<th style="font-size:14px">Description
-</th>
-</tr>
-<tr>
-<td>[BoardingPass](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/BoardingPassProject)</td>
-<td>This project is an example of boarding pass generation. A boarding pass is a document provided by an airline during check-in, giving a passenger permission to board the airplane for a particular flight.</td>
-</tr>
-<tr>
-<td>[EmployeeCertificate](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/EmployeeCertificate)</td>
-<td>This project is an example of generating employee appreciation certificate. This certificate is one of the way to say thank you to the employees who work in their organization.</td>
-</tr>
-<tr>
-<td>[HospitalDischarge](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/HospitalDischarge)</td>
-<td>This project is an example of patient discharge summary generation in hospital. This template captures the medical information related to patient during the stay in the hospital.</td>
-</tr>
-<tr>
-<td>[Invoice](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/Invoice)</td>
-<td>The Invoice project is an example of the invoice generation.An invoice is a commercial document issued by a seller to a buyer relating to a sale transaction and indicating the products, quantities, and agreed-upon prices for products or services the seller had provided the buyer.</td>
-</tr>
-<tr>
-<td>[JobOfferLetter](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/JobOfferLetter)</td>
-<td>This project is an example of generating employee job offer letter in the organization. Job offer letter refers to an official document employer gives to an employee in order to provide them with an offer of employment.</td>
-</tr>
-<tr>
-<td>[LeaseAgreement](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/LeaseAgreement)</td>
-<td>This project is an example of lease agreement generation. A rental agreement is a contract of rental, usually written, between the owner of a property and a renter who desires to have temporary possession of the property.</td>
-</tr>
-<tr>
-<td>[PatientMedicalRecord](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/PatientMedicalRecord)</td>
-<td>This project is an example of generating patient medical record. The medical records are used to describe the systematic documentation of a single patient's medical history.</td>
-</tr>
-</table>
+Sample name | Description
+---|---
+[BoardingPass](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/BoardingPassProject) | This project is an example of boarding pass generation. A boarding pass is a document provided by an airline during check-in, giving a passenger permission to board the airplane for a particular flight.
+[EmployeeCertificate](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/EmployeeCertificate) | This project is an example of generating employee appreciation certificate. This certificate is one of the way to say thank you to the employees who work in their organization.
+[HospitalDischarge](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/HospitalDischarge) | This project is an example of patient discharge summary generation in hospital. This template captures the medical information related to patient during the stay in the hospital.
+[Invoice](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/Invoice) | The Invoice project is an example of the invoice generation.An invoice is a commercial document issued by a seller to a buyer relating to a sale transaction and indicating the products, quantities, and agreed-upon prices for products or services the seller had provided the buyer.
+[JobOfferLetter](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/JobOfferLetter) | This project is an example of generating employee job offer letter in the organization. Job offer letter refers to an official document employer gives to an employee in order to provide them with an offer of employment.
+[LeaseAgreement](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/LeaseAgreement) | This project is an example of lease agreement generation. A rental agreement is a contract of rental, usually written, between the owner of a property and a renter who desires to have temporary possession of the property.
+[PatientMedicalRecord](https://github.com/SyncfusionExamples/PDF-real-time-Examples/blob/master/PatientMedicalRecord) | This project is an example of generating patient medical record. The medical records are used to describe the systematic documentation of a single patient's medical history.
 
 # How to run the examples
 * Download this project to a location in your disk. 
